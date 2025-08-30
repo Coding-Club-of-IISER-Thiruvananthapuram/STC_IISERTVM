@@ -1009,6 +1009,7 @@ footer::before {
 /* Enhanced Gallery Page */
 #gallery-page {
     padding: 4rem 0;
+    background: white;
 }
 
 .filter-buttons {
@@ -1017,17 +1018,19 @@ footer::before {
 }
 
 .filter-btn {
-    background: none;
+    background: white;
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
-    padding: 0.5rem 1.5rem;
+    padding: 0.75rem 2rem;
     margin: 0.5rem;
-    border-radius: 25px;
+    border-radius: 30px;
     cursor: pointer;
     transition: all var(--transition-base);
-    font-weight: 500;
+    font-weight: 600;
     position: relative;
     overflow: hidden;
+    text-transform: capitalize;
+    font-size: 0.9rem;
 }
 
 .filter-btn::before {
@@ -1058,27 +1061,37 @@ footer::before {
 
 .gallery-container {
     column-count: 3;
-    column-gap: 1rem;
+    column-gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .gallery-container .gallery-item-full {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     break-inside: avoid;
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(139, 92, 246, 0.1);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.gallery-container .gallery-item-full:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2);
 }
 
 .gallery-container .gallery-item-full img {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 8px;
+    border-radius: 12px;
     transition: transform var(--transition-slow);
+    cursor: pointer;
 }
 
 .gallery-container .gallery-item-full:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 /* Enhanced Events Page */
@@ -1595,6 +1608,14 @@ footer::before {
 
     .gallery-container {
         column-count: 2;
+        column-gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.8rem;
+        margin: 0.25rem;
     }
 
     .footer-content {
@@ -1736,6 +1757,18 @@ footer::before {
     /* Gallery */
     .gallery-container {
         column-count: 1;
+        padding: 0 1rem;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+        margin: 0.25rem;
+        border-radius: 20px;
+    }
+
+    #gallery-page {
+        padding: 2rem 0;
     }
 
     .gallery-grid {
