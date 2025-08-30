@@ -43,15 +43,21 @@
             overflow-x: hidden;
         }
 
-        /* Hero Section with Gallery Background */
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Clean Hero Section with Gallery Background */
         #hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            background: linear-gradient(135deg, #f8fafc 0%, #747376 100%);
             overflow: hidden;
+            z-index: 1;
+            isolation: isolate;
             --hero-bg-image: url('images/gallery/Events/Anvesha/Inauguration/_AAR6973%20(1).JPG');
         }
 
@@ -66,19 +72,17 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.6;
-            z-index: 1;
-            transition: all 2s ease-in-out;
+            z-index: -2;
+            transition: background-image 2s ease-in-out;
             animation: kenBurns 20s infinite linear;
-            filter: blur(1px);
         }
 
         @keyframes kenBurns {
-            0% { transform: scale(1.05) translate(0, 0); }
-            25% { transform: scale(1.1) translate(-1%, -1%); }
-            50% { transform: scale(1.08) translate(1%, -0.5%); }
-            75% { transform: scale(1.12) translate(-0.5%, 1%); }
-            100% { transform: scale(1.05) translate(0, 0); }
+            0% { transform: scale(1) translate(0, 0); }
+            25% { transform: scale(1.05) translate(-1%, -1%); }
+            50% { transform: scale(1.03) translate(1%, -0.5%); }
+            75% { transform: scale(1.07) translate(-0.5%, 1%); }
+            100% { transform: scale(1) translate(0, 0); }
         }
 
         #hero::after {
@@ -88,20 +92,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.4) 0%, rgba(124, 58, 237, 0.5) 50%, rgba(109, 40, 217, 0.6) 100%);
-            z-index: 2;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
-            50% { transform: translate(-30%, -70%) rotate(180deg); }
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.8) 0%, rgba(124, 58, 237, 0.7) 100%);
+            z-index: -1;
         }
 
         .hero-content {
             text-align: center;
             z-index: 10;
             position: relative;
-            max-width: 900px;
+            max-width: 1000px;
             padding: 0 20px;
             animation: fadeInUp 1s ease-out;
         }
@@ -119,60 +118,114 @@
 
         #hero h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 700;
             color: white;
             margin-bottom: 1.5rem;
             line-height: 1.2;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
 
-        .tagline {
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2.5rem;
+        .hero-tagline {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 3rem;
             font-weight: 400;
+            line-height: 1.6;
         }
 
-        .cta-button {
+        .hero-ctas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .hero-btn-primary {
             display: inline-block;
-            padding: 16px 32px;
+            padding: 18px 36px;
             background: white;
             color: var(--primary-color);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
             border: 2px solid white;
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
+        .hero-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.3);
             background: var(--primary-color);
             color: white;
+            text-decoration: none;
         }
 
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(139, 92, 246, 0.1);
-            transform: translate(-50%, -50%);
-            transition: width 0.5s, height 0.5s;
+        .hero-btn-secondary {
+            display: inline-block;
+            padding: 18px 36px;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.8);
         }
 
-        .cta-button:hover::before {
-            width: 300px;
-            height: 300px;
+        .hero-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: white;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        .hero-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-top: 2rem;
+        }
+
+        .hero-highlight-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .hero-highlight-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .hero-highlight-icon {
+            width: 32px;
+            height: 32px;
+            margin: 0 auto 16px;
+            fill: white;
+        }
+
+        .hero-highlight-card h3 {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .hero-highlight-card p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
         }
 
         /* Container */
@@ -186,6 +239,28 @@
         section {
             padding: 80px 0;
             position: relative;
+            z-index: 2;
+        }
+
+        /* Featured Clubs Section Spacing */
+        #featured-clubs {
+            padding: 120px 0 80px 0;
+            background: linear-gradient(180deg, #f8fafc 0%, white 20%, white 100%);
+            margin-top: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        #featured-clubs::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
         }
 
         #upcoming-events {
@@ -398,6 +473,7 @@
             transform: translateY(-8px);
             box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.15), 0 10px 10px -5px rgba(139, 92, 246, 0.1);
             border-color: var(--primary-color);
+            z-index: 3;
         }
 
         .stc-club-card:focus {
@@ -742,7 +818,37 @@
 
         @media (max-width: 768px) {
             #hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.1rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
+
+            .hero-btn-primary,
+            .hero-btn-secondary {
+                padding: 16px 32px;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .hero-highlights {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                margin-top: 2rem;
+            }
+
+            #featured-clubs {
+                padding: 80px 0 60px 0;
+                margin-top: 20px;
             }
 
             .section-title {
@@ -793,15 +899,6 @@
                 min-height: 160px;
             }
 
-            .stc-hero-ctas {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .stc-highlights-grid {
-                grid-template-columns: 1fr;
-            }
-
             .gallery-slide img {
                 height: 300px;
             }
@@ -809,7 +906,22 @@
 
         @media (max-width: 480px) {
             #hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+            }
+
+            .hero-btn-primary,
+            .hero-btn-secondary {
+                padding: 14px 28px;
+                font-size: 0.95rem;
+            }
+
+            #featured-clubs {
+                padding: 60px 0 50px 0;
+                margin-top: 10px;
             }
 
             .stc-clubs-grid {
@@ -823,21 +935,9 @@
                 margin: 0 auto;
                 max-width: 320px;
             }
-            }
 
             .gallery-slide img {
                 height: 250px;
-            }
-
-            .cta-button {
-                padding: 14px 28px;
-                font-size: 0.95rem;
-            }
-
-            .stc-hero-btn-primary,
-            .stc-hero-btn-secondary {
-                padding: 14px 28px;
-                font-size: 0.95rem;
             }
         }
 
@@ -880,45 +980,23 @@
     </header>
 
     <main>
-        <!-- STC — Fostering Innovation Section -->
-        <section class="stc-hero-section">
-            <div class="container">
-                <div class="stc-hero-content">
-                    <h2>STC — Fostering Innovation, Inspiring Minds</h2>
-                    <p>The Science and Technology Council serves as the hub for academic excellence and technological advancement at IISER Thiruvananthapuram. We bridge the gap between theoretical knowledge and practical application.</p>
-                    
-                    <div class="stc-hero-ctas">
-                        <a href="pages/about.html" class="stc-hero-btn-primary" aria-label="Learn more about STC">
-                            Learn More About STC
-                        </a>
-                        <a href="pages/contact.html" class="stc-hero-btn-secondary" aria-label="Get in touch with STC">
-                            Get Involved
-                        </a>
-                    </div>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Science and Technology Council</h1>
+                <p class="hero-tagline">IISER Thiruvananthapuram - Fostering Innovation, Inspiring Minds</p>
+                
+                <div class="hero-ctas">
+                    <a href="pages/clubs.html" class="hero-btn-primary" aria-label="Explore our clubs">
+                        Explore Our Clubs
+                    </a>
+                    <a href="pages/about.html" class="hero-btn-secondary" aria-label="Learn more about STC">
+                        Learn More
+                    </a>
+                </div>
 
-                    <div class="stc-highlights-grid">
-                        <div class="stc-highlight-card">
-                            <svg class="stc-highlight-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                            <h3>Workshops</h3>
-                            <p>Regular skill-building workshops covering cutting-edge technologies and research methodologies.</p>
-                        </div>
-                        <div class="stc-highlight-card">
-                            <svg class="stc-highlight-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                            </svg>
-                            <h3>Project Support</h3>
-                            <p>Comprehensive support for student research projects and innovative ideas with mentorship and resources.</p>
-                        </div>
-                        <div class="stc-highlight-card">
-                            <svg class="stc-highlight-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A3.003 3.003 0 0 0 16.98 6c-.8 0-1.54.37-2.03.97L12 11l2.97 5.97L16 22h4zM12.5 11.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5S11 9.17 11 10s.67 1.5 1.5 1.5zm-2 7c-.28 0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5zm-7 0c-.28 0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5zm14-4.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5z"/>
-                            </svg>
-                            <h3>Community</h3>
-                            <p>A vibrant community of passionate students, researchers, and innovators working together.</p>
-                        </div>
-                    </div>
+                <div class="hero-highlights">
+
                 </div>
             </div>
         </section>
