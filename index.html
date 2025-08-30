@@ -15,9 +15,9 @@
     
     <style>
         :root {
-            --primary-color: #8B5CF6;
-            --primary-dark: #7C3AED;
-            --secondary-color: #A855F7;
+            --primary-color: #c7c3d2;
+            --primary-dark: #5f1dd1;
+            --secondary-color: #bdbbbe;
             --text-primary: #1f2937;
             --text-secondary: #6b7280;
             --bg-light: #faf9fc;
@@ -58,7 +58,7 @@
             overflow: hidden;
             z-index: 1;
             isolation: isolate;
-            --hero-bg-image: url('images/gallery/Events/Anvesha/Inauguration/_AAR6973%20(1).JPG');
+            --hero-bg-image: url('images/gallery/Events/Anvesha/Inauguration/_AAR6973 (1).JPG');
         }
 
         #hero::before {
@@ -92,7 +92,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.8) 0%, rgba(124, 58, 237, 0.7) 100%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.3) 100%);
             z-index: -1;
         }
 
@@ -244,9 +244,9 @@
 
         /* Featured Clubs Section Spacing */
         #featured-clubs {
-            padding: 120px 0 80px 0;
+            padding: 140px 0 100px 0;
             background: linear-gradient(180deg, #f8fafc 0%, white 20%, white 100%);
-            margin-top: 40px;
+            margin-top: 60px;
             position: relative;
             z-index: 2;
         }
@@ -293,21 +293,21 @@
         /* Featured Clubs Grid */
         .stc-clubs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 24px;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 4rem;
         }
 
         .stc-club-card {
             background: white;
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 0;
             text-align: center;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 6px -1px rgba(139, 92, 246, 0.1), 0 2px 4px -1px rgba(139, 92, 246, 0.06);
             position: relative;
             overflow: hidden;
-            height: 360px;
+            height: 420px;
             display: flex;
             flex-direction: column;
             text-decoration: none;
@@ -344,7 +344,7 @@
         }
 
         .stc-club-card-content {
-            padding: 32px 24px;
+            padding: 40px 28px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -352,10 +352,10 @@
         }
 
         .stc-club-card img {
-            width: 80px;
-            height: 80px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             object-fit: cover;
             border: 3px solid var(--border-light);
             transition: all 0.3s ease;
@@ -377,34 +377,34 @@
 
         .stc-club-card h3 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             flex-shrink: 0;
         }
 
         .stc-club-card p {
             color: var(--text-secondary);
-            font-size: 0.875rem;
-            line-height: 1.5;
+            font-size: 1rem;
+            line-height: 1.6;
             flex: 1;
             display: flex;
             align-items: center;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             text-align: center;
         }
 
         .club-contact {
             margin-top: auto;
-            padding-top: 12px;
+            padding-top: 16px;
             border-top: 1px solid var(--border-light);
             width: 100%;
         }
 
         .club-contact small {
             color: var(--text-secondary);
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             display: block;
             text-align: center;
             opacity: 0.8;
@@ -709,8 +709,8 @@
             }
 
             #featured-clubs {
-                padding: 80px 0 60px 0;
-                margin-top: 20px;
+                padding: 100px 0 80px 0;
+                margin-top: 30px;
             }
 
             .section-title {
@@ -719,36 +719,36 @@
 
             .stc-clubs-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
+                gap: 20px;
                 padding: 0 10px;
             }
 
             .stc-club-card {
-                height: 300px;
+                height: 380px;
             }
 
             .stc-club-card-content {
-                padding: 20px 16px;
+                padding: 28px 20px;
             }
 
             .stc-club-card img {
-                width: 60px;
-                height: 60px;
-                margin-bottom: 16px;
+                width: 100px;
+                height: 100px;
+                margin-bottom: 20px;
             }
 
             .stc-club-card h3 {
-                font-size: 1.1rem;
-                margin-bottom: 8px;
+                font-size: 1.2rem;
+                margin-bottom: 12px;
             }
 
             .stc-club-card p {
-                font-size: 0.8rem;
-                line-height: 1.4;
+                font-size: 0.9rem;
+                line-height: 1.5;
             }
 
             .club-contact small {
-                font-size: 0.7rem;
+                font-size: 0.75rem;
             }
 
             .stc-events-grid {
@@ -782,21 +782,30 @@
             }
 
             #featured-clubs {
-                padding: 60px 0 50px 0;
-                margin-top: 10px;
+                padding: 80px 0 70px 0;
+                margin-top: 20px;
             }
 
             .stc-clubs-grid {
                 grid-template-columns: 1fr;
-                gap: 16px;
+                gap: 24px;
                 padding: 0 5px;
             }
 
             .stc-club-card {
-                height: 280px;
+                height: 400px;
                 margin: 0 auto;
-                max-width: 320px;
+                max-width: 350px;
             }
+
+            .stc-club-card-content {
+                padding: 32px 24px;
+            }
+
+            .stc-club-card img {
+                width: 110px;
+                height: 110px;
+                margin-bottom: 20px;
             }
 
             .gallery-slide img {
@@ -994,7 +1003,7 @@
                 <div class="gallery-container">
                     <div class="gallery-slider" id="gallerySlider">
                         <div class="gallery-slide">
-                            <img src="images/gallery/Events/Anvesha/Inauguration/_AAR6973%20(1).JPG" alt="Anvesha Inauguration Event" loading="lazy">
+                            <img src="images/gallery/Events/Anvesha/Inauguration/_AAR6973 (1).JPG" alt="Anvesha Inauguration Event" loading="lazy">
                             <div class="gallery-caption">
                                 <h4>Anvesha Inauguration</h4>
                                 <p>The grand opening of our annual science festival</p>
@@ -1015,35 +1024,35 @@
                             </div>
                         </div>
                         <div class="gallery-slide">
-                            <img src="images/gallery/Events/National%20Science%20Day/_AJN4997%20(1).JPG" alt="National Science Day Celebration" loading="lazy">
+                            <img src="images/gallery/Events/National Science Day/_AJN4997 (1).JPG" alt="National Science Day Celebration" loading="lazy">
                             <div class="gallery-caption">
                                 <h4>National Science Day</h4>
                                 <p>Celebrating scientific achievements and innovation</p>
                             </div>
                         </div>
                         <div class="gallery-slide">
-                            <img src="images/gallery/Events/Panel%20Discussion/IMG-20250615-PANELISTS.jpg" alt="Panel Discussion Event" loading="lazy">
+                            <img src="images/gallery/Events/Panel Discussion/IMG-20250615-PANELISTS.jpg" alt="Panel Discussion Event" loading="lazy">
                             <div class="gallery-caption">
                                 <h4>Expert Panel Discussion</h4>
                                 <p>Industry leaders sharing insights with students</p>
                             </div>
                         </div>
                         <div class="gallery-slide">
-                            <img src="images/gallery/Events/Anvesha/BahFest/_OMJ8296%20(1).JPG" alt="Anvesha BahFest Event" loading="lazy">
+                            <img src="images/gallery/Events/Anvesha/BahFest/_OMJ8296 (1).JPG" alt="Anvesha BahFest Event" loading="lazy">
                             <div class="gallery-caption">
                                 <h4>BahFest Event</h4>
                                 <p>Creative presentations and scientific humor</p>
                             </div>
                         </div>
                         <div class="gallery-slide">
-                            <img src="images/gallery/Events/Cafe%20Scientifique/WhatsApp%20Image%202025-06-15%20at%2021.15.23.jpeg" alt="Cafe Scientifique Event" loading="lazy">
+                            <img src="images/gallery/Events/Cafe Scientifique/WhatsApp Image 2025-06-15 at 21.15.23.jpeg" alt="Cafe Scientifique Event" loading="lazy">
                             <div class="gallery-caption">
                                 <h4>Cafe Scientifique</h4>
                                 <p>Informal science discussions over coffee</p>
                             </div>
                         </div>
                         <div class="gallery-slide">
-                            <img src="images/gallery/Events/Anvesha/Blender%20Workshop/_ESV4906.JPG" alt="Blender Workshop" loading="lazy">
+                            <img src="images/gallery/Events/Anvesha/Blender Workshop/_ESV4906.JPG" alt="Blender Workshop" loading="lazy">
                             <div class="gallery-caption">
                                 <h4>Blender Workshop</h4>
                                 <p>Learning 3D modeling and animation</p>
@@ -1077,13 +1086,13 @@
     <script>
         // Hero Background Image Rotation
         const heroBackgroundImages = [
-            'images/gallery/Events/Anvesha/Inauguration/_AAR6973%20(1).JPG',
+            'images/gallery/Events/Anvesha/Inauguration/_AAR6973 (1).JPG',
             'images/gallery/Events/Anvesha/Afficionados/_AAR7137.JPG',
             'images/gallery/Events/Crucible/opticsboard.jpeg',
-            'images/gallery/Events/National%20Science%20Day/_AJN4997%20(1).JPG',
-            'images/gallery/Events/Panel%20Discussion/IMG-20250615-PANELISTS.jpg',
-            'images/gallery/Events/Anvesha/BahFest/_OMJ8296%20(1).JPG',
-            'images/gallery/Events/Anvesha/Blender%20Workshop/_ESV4906.JPG'
+            'images/gallery/Events/National Science Day/_AJN4997 (1).JPG',
+            'images/gallery/Events/Panel Discussion/IMG-20250615-PANELISTS.jpg',
+            'images/gallery/Events/Anvesha/BahFest/_OMJ8296 (1).JPG',
+            'images/gallery/Events/Anvesha/Blender Workshop/_ESV4906.JPG'
         ];
         
         let currentHeroImageIndex = 0;
@@ -1351,13 +1360,13 @@
             // Preload gallery images for faster loading
             const preloadGalleryImages = () => {
                 const galleryImages = [
-                    'images/gallery/Events/Anvesha/Inauguration/_AAR6973%20(1).JPG',
+                    'images/gallery/Events/Anvesha/Inauguration/_AAR6973 (1).JPG',
                     'images/gallery/Events/Anvesha/Afficionados/_AAR7137.JPG',
                     'images/gallery/Events/Crucible/opticsboard.jpeg',
-                    'images/gallery/Events/National%20Science%20Day/_AJN4997%20(1).JPG',
-                    'images/gallery/Events/Panel%20Discussion/IMG-20250615-PANELISTS.jpg',
-                    'images/gallery/Events/Anvesha/BahFest/_OMJ8296%20(1).JPG',
-                    'images/gallery/Events/Cafe%20Scientifique/WhatsApp%20Image%202025-06-15%20at%2021.15.23.jpeg'
+                    'images/gallery/Events/National Science Day/_AJN4997 (1).JPG',
+                    'images/gallery/Events/Panel Discussion/IMG-20250615-PANELISTS.jpg',
+                    'images/gallery/Events/Anvesha/BahFest/_OMJ8296 (1).JPG',
+                    'images/gallery/Events/Cafe Scientifique/WhatsApp Image 2025-06-15 at 21.15.23.jpeg'
                 ];
                 
                 galleryImages.forEach(src => {
