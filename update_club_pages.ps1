@@ -1,6 +1,6 @@
 # PowerShell script to update all club pages with mobile CSS
 
-$clubPages = Get-ChildItem -Path "c:\Projects Files\time table\STC_IISERTVM\pages\club-*.html"
+$clubPages = Get-ChildItem -Path "$PSScriptRoot\pages\club-*.html"
 
 foreach ($page in $clubPages) {
     $content = Get-Content -Path $page.FullName -Raw
