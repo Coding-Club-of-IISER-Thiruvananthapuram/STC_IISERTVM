@@ -160,6 +160,9 @@ body {
 
 /* Profile Cards */
 .profile-card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     background: white;
     border-radius: 16px;
     padding: 32px;
