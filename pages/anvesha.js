@@ -16,12 +16,12 @@ function updateAnveshaInfo() {
         
         if (anveshaUpdate) {
             // Update date if available
-            const dateElements = document.querySelectorAll('#anvesha-date, #reg-date');
-            if (anveshaUpdate.date) {
-                dateElements.forEach(el => {
-                    if (el) el.textContent = anveshaUpdate.date;
-                });
-            }
+          //  const dateElements = document.querySelectorAll('#anvesha-date, #reg-date');
+            //if (anveshaUpdate.date) {
+              //  dateElements.forEach(el => {
+               // ''    if (el) el.textContent = anveshaUpdate.date;
+               // });
+}
             
             // Update description in hero section
             const heroDescription = document.querySelector('.hero-description');
@@ -29,7 +29,7 @@ function updateAnveshaInfo() {
                 heroDescription.textContent = anveshaUpdate.excerpt;
             }
         }
-    }
+    
     
     // Update event information from upcomingEvents
     if (typeof upcomingEvents !== 'undefined' && Array.isArray(upcomingEvents)) {
@@ -38,15 +38,15 @@ function updateAnveshaInfo() {
         );
         
         if (anveshaEvent) {
-            const dateElements = document.querySelectorAll('#anvesha-date, #reg-date');
-            if (anveshaEvent.date) {
-                dateElements.forEach(el => {
-                    if (el) el.textContent = anveshaEvent.date;
-                });
+           // const dateElements = document.querySelectorAll('#anvesha-date, #reg-date');
+           // if (anveshaEvent.date) {
+             //   dateElements.forEach(el => {
+           //         if (el) el.textContent = anveshaEvent.date;
+            //    });
             }
         }
     }
-}
+
 
 // Load Anvesha gallery images
 function loadAnveshaGallery() {
@@ -64,21 +64,30 @@ function loadAnveshaGallery() {
             alt: 'Anvesha Inauguration'
         },
         {
-            src: '../images/gallery/Events/Anvesha/img2.jpg',
+            src: 'https://github.com/Coding-Club-of-IISER-Thiruvananthapuram/STC_IISERTVM/blob/main/images/gallery/Events/Anvesha/Afficionados/img1.jpg?raw=true',
             alt: 'Competition Event'
         },
         {
-            src: '../images/gallery/Events/Anvesha/img3.jpg',
-            alt: 'Workshop Session'
+            src: 'https://github.com/Coding-Club-of-IISER-Thiruvananthapuram/STC_IISERTVM/blob/main/images/gallery/Events/Anvesha/BahFest/img1.jpg?raw=true',
+            alt: 'BAHFest'
         },
         {
-            src: '../images/gallery/Events/Anvesha/img4.jpg',
-            alt: 'Exhibition'
+            src: 'https://github.com/Coding-Club-of-IISER-Thiruvananthapuram/STC_IISERTVM/blob/main/images/gallery/Events/Anvesha/Blackbox/img1.jpg?raw=true',
+            alt: 'Black BOX'
         },
         {
-            src: '../images/gallery/Events/Anvesha/img5.jpg',
-            alt: 'Awards Ceremony'
+            src: 'https://github.com/Coding-Club-of-IISER-Thiruvananthapuram/STC_IISERTVM/blob/main/images/gallery/Events/Anvesha/Blender%20Workshop/img1.jpg?raw=true',
+            alt: 'Workshop'
+        },
+         {
+            src: 'https://github.com/Coding-Club-of-IISER-Thiruvananthapuram/STC_IISERTVM/blob/main/images/gallery/Events/Anvesha/Jigyasa/img1.jpg?raw=true',
+            alt: 'Jigyasa'
+        },
+        {
+            src: 'https://github.com/Coding-Club-of-IISER-Thiruvananthapuram/STC_IISERTVM/blob/main/images/gallery/Events/Anvesha/Entanglement/img3.jpg?raw=true',
+            alt: 'contrapt'
         }
+
     ];
     
     galleryGrid.innerHTML = '';

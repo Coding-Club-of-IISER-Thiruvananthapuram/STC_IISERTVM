@@ -1,18 +1,7 @@
 /*
 Welcome to the content hub for your website!
 
-To update the content on your website, you o// --- EVENTS DATA ---
-const upcomingEvents = [
-   //  },ate: "02 FEB",
-        title: "Know Your Faculty",
-        description: "Organised by the CCIT, this short video series answers common questions in programming and helps you learn directly from our faculty experts."
-    },
-    {
-        date: "15 MAR",
-        title: "Workshop Series",
-        description: "Join us for hands-on workshops covering various aspects of science and technology. Registration details will be announced soon."
-    }
-];dit this file.
+To update the content on your website, you only need to edit this file.
 This approach keeps all your data in one place, making it easy to manage without having to edit any HTML files directly.
 
 Instructions:

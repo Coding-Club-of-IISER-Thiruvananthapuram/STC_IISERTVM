@@ -3,13 +3,17 @@ document.addEventListener("DOMContentLoaded", function() {
     const basePath = isPagesDirectory ? '../' : '';
 
     const loadPartial = (selector, url) => {
+        const element = document.querySelector(selector);
+        if (!element) {
+            return Promise.resolve(); // Return resolved promise if element doesn't exist
+        }
         return fetch(url)
             .then(response => {
                 if (!response.ok) throw new Error(`Could not load ${url}`);
                 return response.text();
             })
             .then(data => {
-                document.querySelector(selector).innerHTML = data;
+                element.innerHTML = data;
             });
     };
 
@@ -138,17 +142,49 @@ document.addEventListener("DOMContentLoaded", function() {
             if (typeof leadershipData !== 'undefined') {
                 if (directorContainer && leadershipData.director) {
                     const { director } = leadershipData;
-                    directorContainer.innerHTML = `<div class="director-card"><img src="${director.imageUrl}" alt="${director.name}"><div class="director-details"><h3>${director.name}</h3><h4>${director.title}</h4><p>"${director.message}"</p></div></div>`;
+                    directorContainer.innerHTML = `
+                        <div class="director-message-box">
+                            <div class="director-profile">
+                                <div class="director-image">
+                                    <img src="${director.imageUrl}" alt="${director.name}" class="director-photo">
+                                </div>
+                                <div class="director-info">
+                                    <h3 class="director-name">${director.name}</h3>
+                                    <h4 class="director-role">${director.title}</h4>
+                                    <p class="director-message">"${director.message}"</p>
+                                </div>
+                            </div>
+                        </div>`;
                 }
                 if (leadershipContainer) {
                     let leadershipHtml = '';
                     if (leadershipData.dosa) {
                         const { dosa } = leadershipData;
-                        leadershipHtml += `<div class="leadership-card"><img src="${dosa.imageUrl}" alt="${dosa.name}"><div class="leadership-details"><h3>${dosa.name}</h3><h4>${dosa.title}</h4><p>"${dosa.message}"</p></div></div>`;
+                        leadershipHtml += `
+                            <div class="profile-card">
+                                <div class="profile-image">
+                                    <img src="${dosa.imageUrl}" alt="${dosa.name}" class="profile-photo">
+                                </div>
+                                <div class="profile-info">
+                                    <h3 class="profile-name">${dosa.name}</h3>
+                                    <h4 class="profile-role">${dosa.title}</h4>
+                                    <p class="profile-bio">"${dosa.message}"</p>
+                                </div>
+                            </div>`;
                     }
                     if (leadershipData.currentAdvisors) {
                         leadershipData.currentAdvisors.forEach(advisor => {
-                            leadershipHtml += `<div class="leadership-card"><img src="${advisor.imageUrl}" alt="${advisor.name}"><div class="leadership-details"><h3>${advisor.name}</h3><h4>${advisor.title}</h4><p>"${advisor.message}"</p></div></div>`;
+                            leadershipHtml += `
+                                <div class="profile-card">
+                                    <div class="profile-image">
+                                        <img src="${advisor.imageUrl}" alt="${advisor.name}" class="profile-photo">
+                                    </div>
+                                    <div class="profile-info">
+                                        <h3 class="profile-name">${advisor.name}</h3>
+                                        <h4 class="profile-role">${advisor.title}</h4>
+                                        <p class="profile-bio">"${advisor.message}"</p>
+                                    </div>
+                                </div>`;
                         });
                     }
                     leadershipContainer.innerHTML = leadershipHtml;
