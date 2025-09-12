@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page - Navbar Loading</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+    <!-- navbar will be loaded here -->
+    <div id="navbar"></div>
+
+    <main style="padding: 2rem;">
+        <h1>Test Page</h1>
+        <p>This page tests the improved navbar loading functionality.</p>
+        <p>Check the browser console for navbar loading messages.</p>
+        
+        <div style="margin-top: 2rem;">
+            <h2>Navbar Loading Status:</h2>
+            <div id="navbar-status">Loading...</div>
+        </div>
+    </main>
+
+    <script src="../js/script.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Additional test to show navbar loading status
+        setTimeout(() => {
+            const navbar = document.getElementById('navbar');
+            const status = document.getElementById('navbar-status');
+            if (navbar && navbar.innerHTML.trim()) {
+                status.innerHTML = '<span style="color: green;">✓ Navbar loaded successfully!</span>';
+                status.innerHTML += '<br><small>You should see the navigation menu above.</small>';
+            } else {
+                status.innerHTML = '<span style="color: red;">✗ Navbar failed to load</span>';
+                status.innerHTML += '<br><small>Check the browser console for error messages.</small>';
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
