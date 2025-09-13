@@ -1,25 +1,72 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Detect the base path of the application more robustly
+    function getBasePath() {
+        const path = window.location.pathname;
+        
+        // For pages like /stc/pages/leadership.html
+        if (path.includes('/pages/')) {
+            const baseEnd = path.indexOf('/pages/');
+            return path.substring(0, baseEnd + 1);
+        }
+        
+        // For root pages, we need to detect if we're in a subdirectory
+        // Look for known file patterns to determine base
+        const pathSegments = path.split('/').filter(segment => segment.length > 0);
+        
+        // If path is just /index.html or /, we're at true root
+        if (pathSegments.length === 0 || 
+            (pathSegments.length === 1 && pathSegments[0] === 'index.html')) {
+            return '/';
+        }
+        
+        // If we have one segment that's not index.html, it's likely a base path
+        // e.g., /stc/ or /stc/index.html
+        if (pathSegments.length === 1 || 
+            (pathSegments.length === 2 && pathSegments[1] === 'index.html')) {
+            return `/${pathSegments[0]}/`;
+        }
+        
+        // Default to root if we can't determine
+        return '/';
+    }
+
+    const basePath = getBasePath();
     const isPagesDirectory = window.location.pathname.includes('/pages/');
-    const basePath = isPagesDirectory ? '../' : '';
+    
+    // For loading header/footer, use the base path
+    const headerFooterBasePath = isPagesDirectory ? '../' : './';
+
+    // Debug logging
+    console.log('[STC Debug] Current pathname:', window.location.pathname);
+    console.log('[STC Debug] Detected base path:', basePath);
+    console.log('[STC Debug] Is pages directory:', isPagesDirectory);
+    console.log('[STC Debug] Header/Footer base path:', headerFooterBasePath);
 
     const loadPartial = (selector, url) => {
         const element = document.querySelector(selector);
         if (!element) {
             return Promise.resolve(); // Return resolved promise if element doesn't exist
         }
+        console.log('[STC Debug] Loading partial:', url);
         return fetch(url)
             .then(response => {
-                if (!response.ok) throw new Error(`Could not load ${url}`);
+                console.log('[STC Debug] Partial response:', url, response.status, response.ok);
+                if (!response.ok) throw new Error(`Could not load ${url}: ${response.status}`);
                 return response.text();
             })
             .then(data => {
                 element.innerHTML = data;
+                console.log('[STC Debug] Partial loaded successfully:', url);
+            })
+            .catch(error => {
+                console.error('[STC Debug] Failed to load partial:', url, error);
+                throw error;
             });
     };
 
     Promise.all([
-        loadPartial('header', `${basePath}header.html`),
-        loadPartial('footer', `${basePath}footer.html`)
+        loadPartial('header', `${headerFooterBasePath}header.html`),
+        loadPartial('footer', `${headerFooterBasePath}footer.html`)
     ]).then(() => {
         // --- AFTER HEADER/FOOTER ARE LOADED ---
 
@@ -44,21 +91,26 @@ document.addEventListener("DOMContentLoaded", function() {
             // If we're in pages directory, keep the relative paths as is
         });
 
-        // Fix header links based on current page location
+        // Fix header links based on current page location and base path
         const headerRootLinks = document.querySelectorAll('[data-link="root"]');
         
         headerRootLinks.forEach(link => {
             const href = link.getAttribute('href');
-            if (isPagesDirectory && href) {
-                if (href === 'index.html') {
-                    // From pages directory, go up one level to reach index.html
-                    link.setAttribute('href', '../index.html');
-                } else if (href.startsWith('pages/')) {
-                    // From pages directory, remove the 'pages/' prefix
-                    link.setAttribute('href', href.replace('pages/', ''));
+            if (href) {
+                if (isPagesDirectory) {
+                    if (href === 'index.html') {
+                        // From pages directory, go up one level to reach index.html
+                        link.setAttribute('href', '../index.html');
+                    } else if (href.startsWith('pages/')) {
+                        // From pages directory, remove the 'pages/' prefix
+                        link.setAttribute('href', href.replace('pages/', ''));
+                    }
+                } else {
+                    // If we're on the root page but have a base path other than '/'
+                    // Keep the original paths as they should work relative to the base
+                    // No changes needed for root page
                 }
             }
-            // If we're on the root page, keep the original paths
         });
 
         // Fix image paths

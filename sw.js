@@ -4,13 +4,24 @@ const STATIC_CACHE_NAME = 'stc-static-v1';
 const DYNAMIC_CACHE_NAME = 'stc-dynamic-v1';
 const IMAGE_CACHE_NAME = 'stc-images-v1';
 
-// Detect base path for GitHub Pages compatibility
+// Detect base path for GitHub Pages and reverse proxy compatibility
 function getBasePath() {
-    // This will be different in service worker context
-    // We'll use a simpler detection method
-    const currentUrl = self.location.href;
-    const baseUrl = new URL('./', currentUrl);
-    return baseUrl.pathname;
+    // Get the current service worker URL to determine base path
+    const swUrl = self.location.href;
+    const swUrlObj = new URL(swUrl);
+    let basePath = swUrlObj.pathname;
+    
+    // Remove /sw.js from the end to get the base directory
+    if (basePath.endsWith('/sw.js')) {
+        basePath = basePath.slice(0, -6); // Remove '/sw.js'
+    }
+    
+    // Ensure it ends with /
+    if (!basePath.endsWith('/')) {
+        basePath += '/';
+    }
+    
+    return basePath;
 }
 
 // Get path with base path
@@ -18,10 +29,12 @@ function getPath(relativePath) {
     const basePath = getBasePath();
     const cleanPath = relativePath.startsWith('/') ? relativePath.slice(1) : relativePath;
     
+    // If basePath is just '/', return as absolute path
     if (basePath === '/') {
         return `/${cleanPath}`;
     }
     
+    // Otherwise combine base path with relative path
     return `${basePath}${cleanPath}`;
 }
 
