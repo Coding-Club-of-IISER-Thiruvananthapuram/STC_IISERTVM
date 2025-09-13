@@ -10,8 +10,14 @@ window.addEventListener('resize', setNoHorizontalScroll);
 // Enhanced interactions and animations for the STC Leadership page
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Dynamically load navbar.html into #navbar
-    const navbarContainer = document.getElementById('navbar');
+    // Check if universal path fixer has already loaded navbar
+    const navbarContainer = document.getElementById('navbar-container') || document.getElementById('navbar');
+    if (navbarContainer && navbarContainer.innerHTML.trim() !== '') {
+        console.log('Navbar already loaded by universal path fixer');
+        return;
+    }
+    
+    // Fallback navbar loading if universal path fixer didn't handle it
     if (navbarContainer) {
         // Calculate correct path to navbar.html
         const currentPath = window.location.pathname;
@@ -26,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        console.log('Loading navbar from:', navbarPath);
+        console.log('Fallback: Loading navbar from:', navbarPath);
         
         fetch(navbarPath)
             .then(response => {
@@ -37,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return response.text();
             })
             .then(html => {
-                console.log('Navbar HTML loaded successfully');
+                console.log('Navbar HTML loaded successfully (fallback)');
                 navbarContainer.innerHTML = html;
                 
                 // Simple and reliable path fixing

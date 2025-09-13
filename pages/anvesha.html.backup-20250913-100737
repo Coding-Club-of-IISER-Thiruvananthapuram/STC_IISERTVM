@@ -1,22 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+    (function() {
+        const currentPath = window.location.pathname;
+        const currentHost = window.location.host;
+        
+        // Specific detection for different deployments
+        const isSTCDomain = currentHost === "students.iisertvm.ac.in" && currentPath.startsWith("/stc/");
+        const isGitHubPages = currentHost.includes("github.io");
+        const isSubdirectoryDeployment = currentPath.includes("/STC_IISERTVM/");
+        
+        // Determine the base path based on deployment
+        let siteBasePath = "/";
+        if (isSTCDomain) {
+            siteBasePath = "/stc/";
+        } else if (isSubdirectoryDeployment) {
+            siteBasePath = "/STC_IISERTVM/";
+        }
+        
+        function fixPath(originalPath) {
+            if (!originalPath || originalPath.startsWith("http://") || originalPath.startsWith("https://") || originalPath.startsWith("//")) {
+                return originalPath;
+            }
+            
+            if (originalPath.startsWith("../")) {
+                if (isSTCDomain || isSubdirectoryDeployment) {
+                    const relativePath = originalPath.substring(3);
+                    return siteBasePath + relativePath;
+                } else {
+                    return originalPath;
+                }
+            } else if (originalPath.startsWith("./") || (!originalPath.startsWith("/") && !originalPath.includes(":"))) {
+                if (isSTCDomain || isSubdirectoryDeployment) {
+                    const cleanPath = originalPath.replace("./", "");
+                    return siteBasePath + "pages/" + cleanPath;
+                } else {
+                    return originalPath;
+                }
+            }
+            
+            return originalPath;
+        }
+        
+        window.writeFixedCSS = function(originalPath) {
+            const newPath = fixPath(originalPath);
+            document.write('<link rel="stylesheet" href="' + newPath + '">');
+        };
+        
+        window.writeFixedJS = function(originalPath) {
+            const newPath = fixPath(originalPath);
+            document.write('<script src="' + newPath + '"><\/script>');
+        };
+    })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anvesha - STC IISER TVM</title>
+    <title>Anvesha 2025 - Annual Science Fest | STC IISER TVM</title>
+    <script>writeFixedCSS("../css/style.css");</script>
+    <script>writeFixedCSS("navbar.css");</script>
+    <script>writeFixedCSS("anvesha.css");</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>writeFixedCSS("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");</script>
     
-    <!-- Universal Path Fixer Script -->
-    <script src="../js/universal-path-fixer.js" onerror="console.warn('Universal path fixer failed to load')"></script>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Anvesha 2025 - The Annual Science Fest of IISER Thiruvananthapuram. Join us for competitions, workshops, exhibitions, and innovation challenges.">
+    <meta name="keywords" content="Anvesha, Science Fest, IISER TVM, Science Competition, Technology, Innovation, Research">
     
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="../css/mobile.css">
-    <link rel="stylesheet" href="anvesha.css">
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Anvesha 2025 - Annual Science Fest">
+    <meta property="og:description" content="Join us at Anvesha 2025, IISER Thiruvananthapuram's premier science fest featuring competitions, workshops, and innovation challenges.">
+    <meta property="og:image" content="../images/gallery/Events/Anvesha/img1.webp">
+    <meta property="og:url" content="https://stc.iisertvm.ac.in/pages/anvesha.html">
 </head>
 <body>
     <!-- Navigation -->
-    <div id="navbar-container"></div>
+    <div id="navbar"></div>
 
     <!-- Hero Section -->
     <section class="anvesha-hero">
@@ -305,7 +366,9 @@
     </section>
 
     <!-- Footer -->
-    <footer id="footer-container"></footer>
+    <footer>
+        <!-- Footer content loaded by script.js -->
+    </footer>
 
     <!-- Scripts -->
     <script>writeFixedJS("https://code.jquery.com/jquery-3.6.0.min.js");</script>
@@ -593,30 +656,5 @@
             }
         }
     </style>
-
-    <!-- JavaScript Files -->
-    
-    <!-- Load and fix footer content -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load footer content
-            const footerContainer = document.getElementById('footer-container');
-            if (footerContainer && window.fixPath) {
-                const footerPath = window.fixPath('../footer.html');
-                fetch(footerPath)
-                    .then(response => response.text())
-                    .then(html => {
-                        footerContainer.innerHTML = html;
-                        // Fix footer links after loading
-                        if (window.fixDynamicContent) {
-                            setTimeout(window.fixDynamicContent, 100);
-                        }
-                    })
-                    .catch(error => {
-                        console.warn('Footer loading failed:', error);
-                    });
-            }
-        });
-    </script>
 </body>
 </html>

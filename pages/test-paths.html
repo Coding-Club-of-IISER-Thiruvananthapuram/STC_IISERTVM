@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Path Fixer Test - STC IISER TVM</title>
+    
+    <!-- Universal Path Fixer Script -->
+    <script src="../js/universal-path-fixer.js" onerror="console.warn('Universal path fixer failed to load')"></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        .info { background-color: #d1ecf1; border-color: #bee5eb; }
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>STC Path Fixer Test Page</h1>
+    
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+    
+    <div class="test-section info">
+        <h2>🔧 Deployment Detection</h2>
+        <p>Current URL: <span id="current-url"></span></p>
+        <p>Detected deployment type: <span id="deployment-type"></span></p>
+        <p>Site base path: <span id="site-base-path"></span></p>
+    </div>
+    
+    <div class="test-section info">
+        <h2>🧭 Navbar Test</h2>
+        <p>Navbar should load automatically above this section.</p>
+        <p>All navbar links should work correctly for the current deployment environment.</p>
+    </div>
+    
+    <div class="test-section info">
+        <h2>🔗 Path Resolution Test</h2>
+        <div id="path-tests"></div>
+    </div>
+    
+    <div class="test-section info">
+        <h2>📊 Console Output</h2>
+        <p>Check the browser console for detailed path fixing logs.</p>
+        <p>Look for messages starting with "🔧" and "✅".</p>
+    </div>
+    
+    <!-- Footer Container -->
+    <footer id="footer-container"></footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Display current environment info
+            document.getElementById('current-url').textContent = window.location.href;
+            
+            // Wait for universal path fixer to set up
+            setTimeout(() => {
+                const currentPath = window.location.pathname;
+                const currentHost = window.location.host;
+                
+                const isSTCDomain = currentHost === "students.iisertvm.ac.in" && currentPath.startsWith("/stc/");
+                const isGitHubPages = currentHost.includes("github.io");
+                const isLocalDev = currentHost === "localhost" || currentHost === "127.0.0.1";
+                const isSubdirectoryDeployment = currentPath.includes("/STC_IISERTVM/");
+                
+                let deploymentType = "Unknown";
+                let siteBasePath = "/";
+                
+                if (isSTCDomain) {
+                    deploymentType = "STC Domain (students.iisertvm.ac.in/stc/)";
+                    siteBasePath = "/stc/";
+                } else if (isGitHubPages) {
+                    deploymentType = "GitHub Pages";
+                } else if (isLocalDev) {
+                    deploymentType = "Local Development";
+                } else if (isSubdirectoryDeployment) {
+                    deploymentType = "Subdirectory Deployment";
+                    siteBasePath = "/STC_IISERTVM/";
+                } else {
+                    deploymentType = "Root Deployment";
+                }
+                
+                document.getElementById('deployment-type').textContent = deploymentType;
+                document.getElementById('site-base-path').textContent = siteBasePath;
+                
+                // Test path resolution
+                const testPaths = [
+                    '../index.html',
+                    '../css/style.css',
+                    '../js/script.js',
+                    '../images/logos/SNT_Logo.png',
+                    'about.html',
+                    'clubs.html'
+                ];
+                
+                const pathTestsContainer = document.getElementById('path-tests');
+                pathTestsContainer.innerHTML = '<h3>Sample path resolutions:</h3>';
+                
+                testPaths.forEach(originalPath => {
+                    const fixedPath = window.fixPath ? window.fixPath(originalPath) : originalPath;
+                    const pathDiv = document.createElement('div');
+                    pathDiv.innerHTML = `
+                        <strong>Original:</strong> <code>${originalPath}</code><br>
+                        <strong>Fixed:</strong> <code>${fixedPath}</code>
+                        ${originalPath !== fixedPath ? ' <span style="color: green;">✅ Modified</span>' : ' <span style="color: blue;">ℹ️ No change needed</span>'}
+                        <hr>
+                    `;
+                    pathTestsContainer.appendChild(pathDiv);
+                });
+                
+                // Test navbar loading
+                const navbarContainer = document.getElementById('navbar-container');
+                if (navbarContainer && navbarContainer.innerHTML.trim() !== '') {
+                    console.log('✅ Navbar loaded successfully');
+                } else {
+                    console.warn('⚠️ Navbar not loaded');
+                }
+                
+            }, 1000);
+            
+            // Load footer
+            if (window.fixPath) {
+                const footerContainer = document.getElementById('footer-container');
+                const footerPath = window.fixPath('../footer.html');
+                fetch(footerPath)
+                    .then(response => response.text())
+                    .then(html => {
+                        footerContainer.innerHTML = html;
+                        if (window.fixDynamicContent) {
+                            setTimeout(window.fixDynamicContent, 100);
+                        }
+                    })
+                    .catch(error => {
+                        console.warn('Footer loading failed:', error);
+                    });
+            }
+        });
+    </script>
+</body>
+</html>

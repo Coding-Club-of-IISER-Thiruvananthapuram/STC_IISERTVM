@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+    (function() {
+        const currentPath = window.location.pathname;
+        const currentHost = window.location.host;
+        
+        // Specific detection for different deployments
+        const isSTCDomain = currentHost === "students.iisertvm.ac.in" && currentPath.startsWith("/stc/");
+        const isGitHubPages = currentHost.includes("github.io");
+        const isSubdirectoryDeployment = currentPath.includes("/STC_IISERTVM/");
+        
+        // Determine the base path based on deployment
+        let siteBasePath = "/";
+        if (isSTCDomain) {
+            siteBasePath = "/stc/";
+        } else if (isSubdirectoryDeployment) {
+            siteBasePath = "/STC_IISERTVM/";
+        }
+        
+        function fixPath(originalPath) {
+            if (!originalPath || originalPath.startsWith("http://") || originalPath.startsWith("https://") || originalPath.startsWith("//")) {
+                return originalPath;
+            }
+            
+            if (originalPath.startsWith("../")) {
+                if (isSTCDomain || isSubdirectoryDeployment) {
+                    const relativePath = originalPath.substring(3);
+                    return siteBasePath + relativePath;
+                } else {
+                    return originalPath;
+                }
+            } else if (originalPath.startsWith("./") || (!originalPath.startsWith("/") && !originalPath.includes(":"))) {
+                if (isSTCDomain || isSubdirectoryDeployment) {
+                    const cleanPath = originalPath.replace("./", "");
+                    return siteBasePath + "pages/" + cleanPath;
+                } else {
+                    return originalPath;
+                }
+            }
+            
+            return originalPath;
+        }
+        
+        window.writeFixedCSS = function(originalPath) {
+            const newPath = fixPath(originalPath);
+            document.write('<link rel="stylesheet" href="' + newPath + '">');
+        };
+        
+        window.writeFixedJS = function(originalPath) {
+            const newPath = fixPath(originalPath);
+            document.write('<script src="' + newPath + '"><\/script>');
+        };
+    })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - STC IISER TVM</title>
+    
+    <script>writeFixedCSS('../css/style.css');</script>
+    <script>writeFixedCSS('navbar.css');</script>
+    <script>writeFixedCSS('events.css');</script>
+</head>
+<body>
+    <!-- navbar-->
+     <div id="navbar"> </div>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Events & Workshops</h1>
+            </div>
+        </section>
+
+        <section id="anvesha-promo">
+            <div class="container">
+                <div class="anvesha-content">
+                    <div class="anvesha-text">
+                        <h2>Anvesha - The Annual Science Fest</h2>
+                        <p>Anvesha is the flagship event of the STC, a celebration of science, technology, and innovation that brings together students from across the country. Explore a plethora of events, from competitive coding to robotics, workshops, and inspiring talks.</p>
+                        <a href="anvesha.html" class="cta-button">Visit Anvesha Website</a>
+                    </div>
+                    <div class="anvesha-image">
+                        <img src="../images/gallery/Events/Anvesha/img1.jpg" alt="Anvesha Fest">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="upcoming-events-page" class="container">
+            <h2 class="section-title-sub">Upcoming Events</h2>
+            <div id="upcoming-events-container" class="events-list-full">
+                <!-- Upcoming events are loaded dynamically from js/data.js -->
+            </div>
+        </section>
+
+        <section id="past-events-page" class="container">
+            <h2 class="section-title-sub">Past Events Archive</h2>
+            <div id="past-events-container" class="events-list-full">
+                 <!-- Past events are loaded dynamically from js/data.js -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Footer content is loaded dynamically by js/script.js -->
+    </footer>
+
+    <script>writeFixedJS('../js/data.js');</script>
+    <script>writeFixedJS('../js/script.js');</script>
+    <script>writeFixedJS('script.js');</script>
+    <script>writeFixedJS('events.js');</script>
+</body>
+</html>

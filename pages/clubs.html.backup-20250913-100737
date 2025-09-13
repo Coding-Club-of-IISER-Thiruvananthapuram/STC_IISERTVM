@@ -1,21 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+    (function() {
+        const currentPath = window.location.pathname;
+        const currentHost = window.location.host;
+        
+        // Specific detection for different deployments
+        const isSTCDomain = currentHost === "students.iisertvm.ac.in" && currentPath.startsWith("/stc/");
+        const isGitHubPages = currentHost.includes("github.io");
+        const isSubdirectoryDeployment = currentPath.includes("/STC_IISERTVM/");
+        
+        // Determine the base path based on deployment
+        let siteBasePath = "/";
+        if (isSTCDomain) {
+            siteBasePath = "/stc/";
+        } else if (isSubdirectoryDeployment) {
+            siteBasePath = "/STC_IISERTVM/";
+        }
+        
+        function fixPath(originalPath) {
+            if (!originalPath || originalPath.startsWith("http://") || originalPath.startsWith("https://") || originalPath.startsWith("//")) {
+                return originalPath;
+            }
+            
+            if (originalPath.startsWith("../")) {
+                if (isSTCDomain || isSubdirectoryDeployment) {
+                    const relativePath = originalPath.substring(3);
+                    return siteBasePath + relativePath;
+                } else {
+                    return originalPath;
+                }
+            } else if (originalPath.startsWith("./") || (!originalPath.startsWith("/") && !originalPath.includes(":"))) {
+                if (isSTCDomain || isSubdirectoryDeployment) {
+                    const cleanPath = originalPath.replace("./", "");
+                    return siteBasePath + "pages/" + cleanPath;
+                } else {
+                    return originalPath;
+                }
+            }
+            
+            return originalPath;
+        }
+        
+        window.writeFixedCSS = function(originalPath) {
+            const newPath = fixPath(originalPath);
+            document.write('<link rel="stylesheet" href="' + newPath + '">');
+        };
+        
+        window.writeFixedJS = function(originalPath) {
+            const newPath = fixPath(originalPath);
+            document.write('<script src="' + newPath + '"><\/script>');
+        };
+    })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clubs - STC IISER TVM</title>
-    
-    <!-- Universal Path Fixer Script -->
-    <script src="../js/universal-path-fixer.js" onerror="console.warn('Universal path fixer failed to load')"></script>
-    
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="../css/mobile.css">
+    <script>writeFixedCSS("../css/style.css");</script>
+    <script>writeFixedCSS("navbar.css");</script>
 </head>
 <body>
     <!-- navbar-->
-     <div id="navbar-container"></div>
+     <div id="navbar"> </div>
 
     <main>
         <section class="page-header">
@@ -99,35 +146,12 @@
         </section>
     </main>
 
-    <footer id="footer-container"></footer>
+    <footer>
+        <!-- Footer content is loaded dynamically by js/script.js -->
+    </footer>
 
     <script>writeFixedJS("../js/data.js");</script>
     <script>writeFixedJS("../js/script.js");</script>
     <script>writeFixedJS("script.js");</script>
-
-    <!-- JavaScript Files -->
-    
-    <!-- Load and fix footer content -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load footer content
-            const footerContainer = document.getElementById('footer-container');
-            if (footerContainer && window.fixPath) {
-                const footerPath = window.fixPath('../footer.html');
-                fetch(footerPath)
-                    .then(response => response.text())
-                    .then(html => {
-                        footerContainer.innerHTML = html;
-                        // Fix footer links after loading
-                        if (window.fixDynamicContent) {
-                            setTimeout(window.fixDynamicContent, 100);
-                        }
-                    })
-                    .catch(error => {
-                        console.warn('Footer loading failed:', error);
-                    });
-            }
-        });
-    </script>
 </body>
 </html>

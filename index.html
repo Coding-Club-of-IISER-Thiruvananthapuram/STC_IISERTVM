@@ -21,6 +21,9 @@
     <meta name="apple-mobile-web-app-title" content="STC IISER TVM">
     <meta name="mobile-web-app-capable" content="yes">
     
+    <!-- Universal Path Fixer Script -->
+    <script src="js/universal-path-fixer.js" onerror="console.warn('Universal path fixer failed to load')"></script>
+    
     <!-- Preload critical resources -->
     <link rel="preload" href="css/style.css" as="style">
     <link rel="preload" href="js/pwa-installer.js" as="script">
@@ -1467,7 +1470,53 @@
     </main>
 
     <footer>
-    <!-- Footer content preserved as per requirement -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-institutional">
+                    <div class="institutional-logo">
+                        <a href="https://www.iisertvm.ac.in/" target="_blank"><img src="https://www.iisertvm.ac.in/files/get_file/7f24d240521d99071c93af3917215ef7" alt="IISER Thiruvananthapuram" loading="lazy"></a>
+                        <h4>IISER Thiruvananthapuram</h4>
+                        <p>Indian Institute of Science Education and Research</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html" class="footer-link-home" data-footer-link="index.html">Home</a></li>
+                        <li><a href="pages/clubs.html" class="footer-link-pages" data-footer-link="pages/clubs.html">Clubs</a></li>
+                        <li><a href="pages/events.html" class="footer-link-pages" data-footer-link="pages/events.html">Events</a></li>
+                        <li><a href="pages/gallery.html" class="footer-link-pages" data-footer-link="pages/gallery.html">Gallery</a></li>
+                        <li><a href="pages/leadership.html" class="footer-link-pages" data-footer-link="pages/leadership.html">Leadership</a></li>
+                        <li><a href="pages/about.html" class="footer-link-pages" data-footer-link="pages/about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Email: stc@iisertvm.ac.in</p>
+                    <p>IISER Thiruvananthapuram</p>
+                    <p>Maruthamala P.O, Vithura</p>
+                    <p>Thiruvananthapuram - 695551, Kerala</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                    <a href="#" aria-label="Twitter">Twitter</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        <p>&copy; 2025 Science and Technology Council, IISER TVM. All Rights Reserved.</p>
+                    </div>
+                    <div class="footer-credits">
+                        <p>Developed by 
+                            <a href="https://coding-club-of-iiser-thiruvananthapuram.github.io/codingclub/" class="coding-club-link" target="_blank" rel="noopener noreferrer"> Coding Club IISER TVM </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Original JS files preserved -->

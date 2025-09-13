@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Universal Path Fixer Script -->
-    <script src="../js/universal-path-fixer.js" onerror="console.warn('Universal path fixer failed to load')"></script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - STC IISER TVM</title>
+    
+    <!-- Universal Path Fixer Script -->
+    <script src="../js/universal-path-fixer.js" onerror="console.warn('Universal path fixer failed to load')"></script>
     
     <!-- CSS Files -->
     <link rel="stylesheet" href="../css/style.css">
@@ -14,9 +14,8 @@
     <link rel="stylesheet" href="../css/mobile.css">
 </head>
 <body>
-    <!-- navbar-->
+    <!-- Navbar Container -->
     <div id="navbar-container"></div>
-
 
     <main>
         <section class="page-header">
@@ -84,6 +83,7 @@ The STC was established to serve as a central platform that connects the diverse
         </section>
     </main>
 
+    <!-- Footer will be loaded by universal path fixer -->
     <footer id="footer-container"></footer>
 
     <!-- JavaScript Files -->
@@ -91,6 +91,7 @@ The STC was established to serve as a central platform that connects the diverse
     <script src="../js/script.js"></script>
     <script src="../js/mobile-enhancements.js"></script>
     <script src="../js/faq.js"></script>
+    <script src="script.js"></script>
     
     <!-- Load and fix footer content -->
     <script>
@@ -114,8 +115,5 @@ The STC was established to serve as a central platform that connects the diverse
             }
         });
     </script>
-</body>
-</html>
-    <script>writeFixedJS("script.js");</script>
 </body>
 </html>
