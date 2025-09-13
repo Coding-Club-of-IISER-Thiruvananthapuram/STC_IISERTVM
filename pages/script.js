@@ -22,6 +22,50 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(html => {
                 navbarContainer.innerHTML = html;
+                
+                // Fix navbar paths for reverse proxy compatibility
+                const currentPath = window.location.pathname;
+                
+                // Calculate how many levels deep we are from the root
+                let basePrefix = '';
+                
+                // Check if we're in a subdirectory deployment (like /stc/pages/)
+                const pathParts = currentPath.split('/').filter(part => part !== '');
+                
+                // If path has more than 1 part before pages, we're in a subdirectory
+                let pagesIndex = -1;
+                for (let i = 0; i < pathParts.length; i++) {
+                    if (pathParts[i] === 'pages') {
+                        pagesIndex = i;
+                        break;
+                    }
+                }
+                
+                if (pagesIndex > 0) {
+                    // We're in a subdirectory like /stc/pages/, need extra ../
+                    basePrefix = '../'.repeat(pagesIndex);
+                }
+                
+                // Fix all navbar links with data-navbar-link attribute
+                const navbarLinks = navbarContainer.querySelectorAll('a[data-navbar-link]');
+                navbarLinks.forEach(link => {
+                    const originalHref = link.getAttribute('data-navbar-link');
+                    if (originalHref && !originalHref.startsWith('http')) {
+                        const newHref = basePrefix + originalHref;
+                        link.setAttribute('href', newHref);
+                    }
+                });
+                
+                // Fix navbar images with data-navbar-img attribute
+                const navbarImages = navbarContainer.querySelectorAll('img[data-navbar-img]');
+                navbarImages.forEach(img => {
+                    const originalSrc = img.getAttribute('data-navbar-img');
+                    if (originalSrc && !originalSrc.startsWith('http')) {
+                        const newSrc = basePrefix + originalSrc;
+                        img.setAttribute('src', newSrc);
+                    }
+                });
+                
                 // Re-run navbar interactivity after injection
                 const hamburger = navbarContainer.querySelector('.hamburger');
                 const navLinks = navbarContainer.querySelector('.nav-links');
