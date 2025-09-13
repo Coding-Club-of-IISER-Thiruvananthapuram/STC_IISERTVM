@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - STC IISER TVM</title>
     
+    <!-- Universal Path Fixer Script -->
+    <script src="../js/universal-path-fixer.js" onerror="console.warn('Universal path fixer failed to load')"></script>
+    
     <!-- CSS Files -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="navbar.css">
@@ -15,55 +18,7 @@
 
 <body>
     <!-- navbar-->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<nav class="navbar">
-    <div class="logo">
-        <a href="../index.html" data-navbar-link="../index.html">
-            <img src="../images/logos/SNT_Logo.png" alt="STC Logo" data-navbar-img="../images/logos/SNT_Logo.png">
-            <span>Science and <br>Technology council</span>
-        </a>
-    </div>
-    <ul class="nav-links">
-        <li><a href="../index.html" data-navbar-link="../index.html">Home</a></li>
-        <li class="dropdown">
-            <a href="about.html" class="dropbtn" data-navbar-link="about.html">About <i class="fas fa-chevron-down"></i></a>
-            <div class="dropdown-content">
-                <a href="leadership.html" data-navbar-link="leadership.html">Leadership</a>
-                <a href="about.html" data-navbar-link="about.html">STC</a>
-                <a href="https://sites.google.com/iisertvm.ac.in/crucible/" target="_blank">Crucible</a>
-            </div>
-        </li>
-        <li class="dropdown">
-            <a href="clubs.html" class="dropbtn" data-navbar-link="clubs.html">Clubs <i class="fas fa-chevron-down"></i></a>
-            <div class="dropdown-content">
-                <a href="club-ccit.html" data-navbar-link="club-ccit.html">CCIT</a>
-                <a href="club-cmit.html" data-navbar-link="club-cmit.html">CMIT</a>
-                <a href="club-compass.html" data-navbar-link="club-compass.html">Compass</a>
-                <a href="club-csit.html" data-navbar-link="club-csit.html">CSIT</a>
-                <a href="club-esi.html" data-navbar-link="club-esi.html">ESI</a>
-                <a href="club-exhibita.html" data-navbar-link="club-exhibita.html">Exhibit A</a>
-                <a href="club-parsec.html" data-navbar-link="club-parsec.html">Parsec</a>
-                <a href="club-proteus.html" data-navbar-link="club-proteus.html">Proteus</a>
-                <a href="club-psit.html" data-navbar-link="club-psit.html">PSI(t)</a>
-                <a href="club-qsi.html" data-navbar-link="club-qsi.html">QSI</a>
-            </div>
-        </li>
-        <li class="dropdown">
-            <a href="events.html" class="dropbtn" data-navbar-link="events.html">Events <i class="fas fa-chevron-down"></i></a>
-<!--             <div class="dropdown-content">
-                <a href="#">Anvesha</a>
-                <a href="#">Cafe Scientifique</a>
-            </div> -->
-        </li>
-        <li><a href="gallery.html" data-navbar-link="gallery.html">Gallery</a></li>
-        <li><a href="contact.html" data-navbar-link="contact.html">Contact</a></li>
-    </ul>
-    <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </div>
-</nav>
+     <div id="navbar-container"></div>
 
     <main>
         <section class="page-header">
@@ -345,58 +300,12 @@
         <img class="lightbox-content" id="lightbox-img">
     </div>
 
-    <footer><div class="container">
-    <div class="footer-content">
-        <div class="footer-institutional">
-            <div class="institutional-logo">
-                <a href="https://www.iisertvm.ac.in/" target="_blank"><img src="https://www.iisertvm.ac.in/files/get_file/7f24d240521d99071c93af3917215ef7" alt="IISER Thiruvananthapuram" loading="lazy"></a>
-                <h4>IISER Thiruvananthapuram</h4>
-                <p>Indian Institute of Science Education and Research</p>
-            </div>
-        </div>
-        <div class="footer-links">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="../index.html" class="footer-link-home" data-footer-link="../index.html">Home</a></li>
-                <li><a href="clubs.html" class="footer-link-pages" data-footer-link="clubs.html">Clubs</a></li>
-                <li><a href="events.html" class="footer-link-pages" data-footer-link="events.html">Events</a></li>
-                <li><a href="gallery.html" class="footer-link-pages" data-footer-link="gallery.html">Gallery</a></li>
-                <li><a href="leadership.html" class="footer-link-pages" data-footer-link="leadership.html">Leadership</a></li>
-                <li><a href="about.html" class="footer-link-pages" data-footer-link="about.html">About</a></li>
-            </ul>
-        </div>
-        <div class="footer-contact">
-            <h4>Contact Us</h4>
-            <p>Email: stc@iisertvm.ac.in</p>
-            <p>IISER Thiruvananthapuram</p>
-            <p>Maruthamala P.O, Vithura</p>
-            <p>Thiruvananthapuram - 695551, Kerala</p>
-        </div>
-        <div class="footer-social">
-            <h4>Follow Us</h4>
-            <a href="#" aria-label="LinkedIn">LinkedIn</a>
-            <a href="#" aria-label="Instagram">Instagram</a>
-            <a href="#" aria-label="Twitter">Twitter</a>
-        </div>
-    </div>
-<div class="footer-bottom">
-  <div class="footer-bottom-content">
-    <div class="footer-copyright">
-      <p>&copy; 2025 Science and Technology Council, IISER TVM. All Rights Reserved.</p>
-    </div>
-    <div class="footer-credits">
-      <p>Developed by 
-        <a href="https://coding-club-of-iiser-thiruvananthapuram.github.io/codingclub/"  class="coding-club-link" target="_blank" rel="noopener noreferrer"> Coding Club IISER TVM </a>
-      </p>
-    </div>
-  </div>
-</div>
-</div></footer>
+    <footer id="footer-container"></footer>
 
-    <script src="../js/data.js"></script>
-    <script src="../js/script.js"></script>
-    <script src="script.js"></script>
-    <script src="gallery-enhanced.js"></script>
+    <script>writeFixedJS("../js/data.js");</script>
+    <script>writeFixedJS("../js/script.js");</script>
+    <script>writeFixedJS("script.js");</script>
+    <script>writeFixedJS("gallery-enhanced.js");</script>
     
     <!-- Service Worker Registration -->
     <script>
@@ -423,6 +332,31 @@
                     });
             });
         }
+    </script>
+
+    <!-- JavaScript Files -->
+    
+    <!-- Load and fix footer content -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load footer content
+            const footerContainer = document.getElementById('footer-container');
+            if (footerContainer && window.fixPath) {
+                const footerPath = window.fixPath('../footer.html');
+                fetch(footerPath)
+                    .then(response => response.text())
+                    .then(html => {
+                        footerContainer.innerHTML = html;
+                        // Fix footer links after loading
+                        if (window.fixDynamicContent) {
+                            setTimeout(window.fixDynamicContent, 100);
+                        }
+                    })
+                    .catch(error => {
+                        console.warn('Footer loading failed:', error);
+                    });
+            }
+        });
     </script>
 </body>
 
