@@ -1,14 +1,28 @@
-/* Credits Page Specific Styles */
+/* ===== Credits Page Styling ===== */
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 1rem;
+}
+
+.section-title-sub {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #222;
+    font-weight: 600;
+}
 
 .credits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* Fixed 3 columns */
     gap: 2rem;
 }
 
 .credit-card {
     background: #fff;
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     padding: 1.5rem;
     text-align: center;
@@ -16,8 +30,8 @@
 }
 
 .credit-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
 }
 
 .credit-card img {
@@ -33,10 +47,11 @@
     margin: 0;
     font-size: 1.25rem;
     color: #333;
+    font-weight: 500;
 }
 
 .credit-card p {
-    margin: 0.25rem 0 1rem 0;
+    margin: 0.25rem 0 1rem;
     color: #666;
     font-size: 0.9rem;
 }
@@ -44,10 +59,25 @@
 .credit-social-links a {
     color: #007bff;
     text-decoration: none;
-    margin: 0 0.5rem;
-    font-size: 1.2rem;
+    margin: 0 0.6rem;
+    font-size: 1.4rem;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .credit-social-links a:hover {
-    text-decoration: underline;
+    color: #0056b3;
+    transform: scale(1.2);
+}
+
+/* ===== Responsive Layout ===== */
+@media (max-width: 900px) {
+    .credits-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    }
+}
+
+@media (max-width: 600px) {
+    .credits-grid {
+        grid-template-columns: 1fr; /* 1 card per row */
+    }
 }
