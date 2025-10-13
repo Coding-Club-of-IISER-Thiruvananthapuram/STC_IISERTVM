@@ -122,7 +122,7 @@ const upcomingEvents = [
     {
         date: "OCT",
         title: "Anvesha",
-        description: "Anvesha ’25 is almost here! IISER Thiruvananthapuram’s annual science fest kicks off on October 17."
+        description: "Anvesha ’25 is almost here! IISER Thiruvananthapuram’s annual science fest kicks off on October 31st."
     },
     {
         date: "SEP",
@@ -148,9 +148,9 @@ const pastEvents = [
 // --- UPDATES DATA ---
 const latestUpdates = [
     {
-        date: "Oct 17, 2025",
+        date: "Oct 31, 2025",
         title: "Anvesha '25",
-        excerpt: "Anvesha ’25 is just around the corner, starting from October 17. Get ready with your projects that aim to reshape the world of research, innovation, and science and technology. We encourage enthusiastic participation from all candidates.",
+        excerpt: "Anvesha ’25 is just around the corner, starting from October 31st. Get ready with your projects that aim to reshape the world of research, innovation, and science and technology. We encourage enthusiastic participation from all candidates.",
         link: "#",
         imageUrl: "https://raw.githubusercontent.com/Coding-Club-of-IISER-Thiruvananthapuram/STC_IISERTVM/refs/heads/main/images/gallery/Events/Anvesha/img1.jpg"
     },

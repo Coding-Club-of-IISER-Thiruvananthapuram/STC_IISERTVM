@@ -1818,3 +1818,347 @@ button:hover {
         flex-direction: column;
     }
 }
+
+/* Merch Card Section Styles */
+.anvesha-merch-card {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.anvesha-merch-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    animation: float 15s ease-in-out infinite;
+}
+
+.anvesha-merch-card::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -15%;
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 50%;
+    animation: float 20s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-30px) rotate(5deg);
+    }
+}
+
+.merch-card-wrapper {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.merch-card-wrapper:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+}
+
+.merch-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 100%);
+    border-radius: 24px;
+    z-index: -1;
+}
+
+.merch-card-content {
+    position: relative;
+}
+
+.merch-card-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.merch-card-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 20px rgba(102, 126, 234, 0);
+    }
+}
+
+.merch-card-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+.merch-card-description {
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.merch-highlights {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.merch-tag {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #667eea;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid rgba(102, 126, 234, 0.2);
+    transition: all 0.3s ease;
+}
+
+.merch-tag:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+    border-color: rgba(102, 126, 234, 0.5);
+    transform: translateY(-2px);
+}
+
+.merch-tag i {
+    font-size: 1rem;
+}
+
+.merch-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.merch-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.merch-btn:hover::before {
+    left: 100%;
+}
+
+.merch-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.5);
+}
+
+.merch-btn i {
+    transition: transform 0.3s ease;
+}
+
+.merch-btn:hover i {
+    transform: translateX(5px);
+}
+
+.merch-card-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 500px;
+}
+
+.merch-card-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.merch-img-1 {
+    position: relative;
+    z-index: 2;
+    max-height: 350px;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+}
+
+.merch-img-2 {
+    position: relative;
+    max-height: 500px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    z-index: 2;
+    opacity: 1;
+    animation: bounce 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+.merch-card-wrapper:hover .merch-img-1 {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+.merch-card-wrapper:hover .merch-img-2 {
+    transform: translateY(-20px) rotate(8deg) scale(1.1);
+}
+
+/* Responsive styles for merch card */
+@media (max-width: 992px) {
+    .merch-card-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2.5rem;
+    }
+    
+    .merch-card-image {
+        order: -1;
+        height: 400px;
+    }
+    
+    .merch-img-1 {
+        max-height: 350px;
+    }
+    
+    .merch-img-2 {
+        max-height: 350px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .anvesha-merch-card {
+        padding: 3rem 0;
+    }
+    
+    .merch-card-wrapper {
+        padding: 2rem;
+    }
+    
+    .merch-card-title {
+        font-size: 2rem;
+    }
+    
+    .merch-card-description {
+        font-size: 1rem;
+    }
+    
+    .merch-highlights {
+        gap: 0.8rem;
+    }
+    
+    .merch-tag {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .merch-btn {
+        font-size: 1rem;
+        padding: 0.9rem 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .merch-card-wrapper {
+        padding: 1.5rem;
+    }
+    
+    .merch-card-title {
+        font-size: 1.6rem;
+    }
+    
+    .merch-card-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .merch-card-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .merch-highlights {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+    
+    .merch-tag {
+        justify-content: center;
+    }
+    
+    .merch-card-image {
+        height: 350px;
+    }
+    
+    .merch-img-1 {
+        max-height: 280px;
+    }
+    
+    .merch-img-2 {
+        max-height: 300px;
+        width: 100%;
+    }
+}

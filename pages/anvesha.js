@@ -24,7 +24,7 @@ function initAlphabetSoup() {
         desc: "Join us for three days of groundbreaking competitions, workshops, exhibitions, and research presentations."
     }, {
         title: "Save the Date",
-        desc: "October 17-19, 2025 at IISER Thiruvananthapuram."
+        desc: "October 31st-November 2nd, 2025 at IISER Thiruvananthapuram."
     }, {
         title: "Get Ready to Explore",
         desc: "Experience cutting-edge research, participate in exciting competitions, and witness the future of science unfold."

@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anvesha 2025 | Merch</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="../css/mobile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #111;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Clean Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #16213e 100%);
+            z-index: -2;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        /* Clean navbar with STC branding */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(15px) !important;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1) !important;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05) !important;
+        }
+        
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .navbar .logo img {
+            filter: none !important;
+            height: 45px !important;
+            width: auto !important;
+        }
+        
+        .navbar .logo span {
+            color: #1a1a2e !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            line-height: 1.3 !important;
+        }
+        
+        .navbar .nav-links a {
+            color: rgba(26, 26, 46, 0.85) !important;
+            font-weight: 500 !important;
+        }
+        
+        .navbar .nav-links a:hover {
+            color: rgba(139, 92, 246, 1) !important;
+        }
+        
+        .navbar .dropdown-content {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid rgba(139, 92, 246, 0.1) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        .navbar .dropdown-content a {
+            color: rgba(26, 26, 46, 0.8) !important;
+        }
+        
+        .navbar .dropdown-content a:hover {
+            background: rgba(139, 92, 246, 0.1) !important;
+            color: rgba(139, 92, 246, 1) !important;
+        }
+        
+        .navbar .hamburger .bar {
+            background: #1a1a2e !important;
+        }
+        
+        /* Force all logos to be visible */
+        .navbar .logo img,
+        footer img,
+        footer .institutional-logo img {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+        }
+        
+        footer .institutional-logo img {
+            max-width: 180px !important;
+            height: auto !important;
+            filter: brightness(1.1) !important;
+        }
+        
+        /* Loading Animation */
+        img {
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+        
+        img.loaded {
+            opacity: 1;
+        }
+        
+        /* Hero images should always be visible */
+        .slider__item img {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+        }
+        
+        /* Clean Hero */
+        .hero__banner {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 150px 20px 100px;
+            background: transparent;
+            gap: 0;
+        }
+        
+        .hero__slider {
+            position: relative;
+            width: 260px;
+            height: 360px;
+            transform-style: preserve-3d;
+            animation: autoRotate 30s linear infinite;
+            z-index: 5;
+            margin: 0 auto;
+        }
+        
+        @keyframes autoRotate {
+            from {
+                transform: perspective(1400px) rotateX(-12deg) rotateY(0deg);
+            }
+            to {
+                transform: perspective(1400px) rotateX(-12deg) rotateY(360deg);
+            }
+        }
+        
+        .hero__slider.paused {
+            animation-play-state: paused;
+        }
+        
+        .hero__slider .slider__item {
+            position: absolute;
+            inset: 0;
+            transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(450px);
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .hero__slider .slider__item:hover {
+            border-color: rgba(139, 92, 246, 0.6);
+            box-shadow: 0 15px 50px rgba(139, 92, 246, 0.3);
+        }
+        
+        .hero__slider .slider__item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        
+        .hero__logo {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            text-align: center;
+            pointer-events: none;
+        }
+        
+        .hero__logo img {
+            max-width: min(400px, 50vw);
+            height: auto;
+            opacity: 0.04;
+            filter: brightness(2.5) contrast(0.3);
+        }
+        
+                .hero__cta-group {
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 16px;
+            z-index: 1000;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .hero__cta {
+            display: inline-block;
+            padding: 14px 32px;
+            backdrop-filter: blur(10px);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(139, 92, 246, 0.5);
+        }
+        
+        .hero__cta--primary {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(99, 52, 206, 0.9));
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+        }
+        
+        .hero__cta--primary:hover {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 1), rgba(99, 52, 206, 1));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(139, 92, 246, 0.5);
+        }
+        
+        .hero__cta--secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero__cta--secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Lightbox for Image Zoom */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 20, 0.97);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox__content {
+            max-width: 90%;
+            max-height: 90vh;
+            position: relative;
+            animation: zoomIn 0.3s ease;
+        }
+        
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+                .lightbox__img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 16px;
+            animation: zoomIn 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        .lightbox__close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: 300;
+            color: #111;
+            transition: all 0.3s;
+        }
+        
+        .lightbox__close:hover {
+            transform: rotate(90deg);
+            background: #f5f5f5;
+        }
+        
+        .lightbox__nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            color: #111;
+            transition: all 0.3s;
+        }
+        
+        .lightbox__nav:hover {
+            background: white;
+        }
+        
+        .lightbox__prev {
+            left: 20px;
+        }
+        
+        .lightbox__next {
+            right: 20px;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            margin-top: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #111;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+        
+        .section-title p {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 300;
+        }
+        
+        /* Product Grid */
+        .product__section {
+            background: #ffffff;
+        }
+        
+        /* Search Bar */
+        .search-container {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 14px 50px 14px 20px;
+            border: 2px solid rgba(139, 92, 246, 0.2);
+            border-radius: 8px;
+            font-size: 15px;
+            color: #333;
+            background: rgba(255, 255, 255, 0.95);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.1);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: rgba(139, 92, 246, 0.6);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+        }
+        
+        .search-input::placeholder {
+            color: #999;
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 35px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(139, 92, 246, 0.6);
+            pointer-events: none;
+        }
+        
+        .filter__controls {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 70px;
+            flex-wrap: wrap;
+        }
+        
+        .filter__controls li {
+            padding: 10px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            background: transparent;
+            color: #666;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: 1px solid #ddd;
+        }
+        
+        .filter__controls li.active,
+        .filter__controls li:hover {
+            background: #111;
+            color: white;
+            border-color: #111;
+        }
+        
+        .product__filter {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .product__item {
+            background: #fafafa;
+            border-radius: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .product__item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .product__item__pic {
+            position: relative;
+            height: 350px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #fff;
+        }
+        
+        .product__item__pic .product__label {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 6px 12px;
+            border-radius: 2px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: #111;
+            color: white;
+        }
+        
+        .product__item__text {
+            padding: 20px;
+        }
+        
+        .product__item__text h5 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .product__item__text h5 a {
+            color: #111;
+            text-decoration: none;
+        }
+        
+        .product__item__text p {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.5;
+            display: none;
+        }
+        
+        .product__rating {
+            margin-top: 10px;
+            display: none;
+        }
+        
+        /* Responsive */
+        @media screen and (max-width: 1200px) {
+            .hero__slider {
+                width: 210px;
+                height: 300px;
+            }
+            
+            .hero__slider .slider__item {
+                transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(360px);
+            }
+            
+            .container {
+                padding: 0 30px;
+            }
+        }
+        
+        @media screen and (max-width: 992px) {
+            .product__filter {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .hero__banner {
+                padding: 100px 20px 40px;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .hero__banner {
+                padding: 120px 15px 80px;
+                min-height: 100vh;
+            }
+            
+            .hero__slider {
+                width: 180px;
+                height: 260px;
+            }
+            
+            .hero__slider .slider__item {
+                transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(300px);
+            }
+            
+            .hero__cta-group {
+                bottom: 50px;
+                flex-direction: column;
+                gap: 12px;
+                width: 90%;
+                max-width: 400px;
+            }
+            
+            .hero__cta {
+                padding: 14px 28px;
+                font-size: 13px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .product__filter {
+                gap: 16px;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .product__item__pic {
+                height: 280px;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            .products {
+                padding: 60px 0 80px;
+            }
+            
+            .search-container {
+                padding: 0 15px;
+                margin-bottom: 25px;
+            }
+            
+            .search-input {
+                padding: 12px 45px 12px 18px;
+                font-size: 14px;
+            }
+            
+            .search-icon {
+                right: 30px;
+                width: 18px;
+                height: 18px;
+            }
+            
+            .filter__controls {
+                gap: 10px;
+            }
+            
+            .filter__controls li {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .lightbox__nav {
+                width: 45px;
+                height: 45px;
+                font-size: 22px;
+            }
+            
+            .lightbox__close {
+                width: 45px;
+                height: 45px;
+                font-size: 24px;
+                top: 15px;
+                right: 15px;
+            }
+            
+            .lightbox__prev {
+                left: 10px;
+            }
+            
+            .lightbox__next {
+                right: 10px;
+            }
+            
+            .navbar .logo img {
+                height: 35px !important;
+            }
+            
+            .navbar .logo span {
+                font-size: 0.85rem !important;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .hero__banner {
+                padding: 100px 10px 70px;
+            }
+            
+            .product__filter {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .hero__slider {
+                width: 150px;
+                height: 220px;
+                margin-bottom: 20px;
+            }
+            
+            .hero__slider .slider__item {
+                transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(240px);
+            }
+            
+            .hero__cta-group {
+                bottom: 60px;
+                gap: 10px;
+                padding: 0 10px;
+                width: calc(100% - 20px);
+            }
+            
+            .hero__cta {
+                padding: 13px 20px;
+                font-size: 12.5px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .search-container {
+                padding: 0 10px;
+                margin-bottom: 20px;
+            }
+            
+            .search-input {
+                padding: 11px 40px 11px 16px;
+                font-size: 13px;
+            }
+            
+            .search-icon {
+                right: 25px;
+                width: 16px;
+                height: 16px;
+            }
+            
+            .filter__controls {
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+            
+            .filter__controls li {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+                flex: 1 1 auto;
+                min-width: 100px;
+            }
+            
+            .product__item__pic {
+                height: 300px;
+            }
+            
+            .section-title {
+                margin-bottom: 30px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .navbar .logo img {
+                height: 30px !important;
+            }
+            
+            .navbar .logo span {
+                font-size: 0.75rem !important;
+                line-height: 1.2 !important;
+            }
+        }
+        
+        @media screen and (max-width: 400px) {
+            .hero__banner {
+                padding: 90px 10px 60px;
+            }
+            
+            .hero__slider {
+                width: 130px;
+                height: 190px;
+            }
+            
+            .hero__slider .slider__item {
+                transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(220px);
+            }
+            
+            .hero__cta-group {
+                bottom: 40px;
+            }
+            
+            .hero__cta {
+                padding: 12px 18px;
+                font-size: 12px;
+            }
+            
+            .container {
+                padding: 0 12px;
+            }
+            
+            .product__item__pic {
+                height: 280px;
+            }
+            
+            .filter__controls li {
+                padding: 7px 12px;
+                font-size: 0.75rem;
+                min-width: 80px;
+            }
+            
+            .lightbox__nav,
+            .lightbox__close {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            
+            .navbar .logo img {
+                height: 28px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <!-- Hero Section -->
+    <section class="hero__banner" id="home">
+        <div class="hero__slider" id="heroSlider" style="--quantity: 9">
+            <div class="slider__item" style="--position: 1" data-src="anvesha_merch_25/Anvesha-Dark-FR.png">
+                <img src="anvesha_merch_25/Anvesha-Dark-FR.png" alt="Dark T-Shirt">
+            </div>
+            <div class="slider__item" style="--position: 2" data-src="anvesha_merch_25/Anvesha-Lav-FR.png">
+                <img src="anvesha_merch_25/Anvesha-Lav-FR.png" alt="Lavender T-Shirt">
+            </div>
+            <div class="slider__item" style="--position: 3" data-src="anvesha_merch_25/Light_merch_front.png">
+                <img src="anvesha_merch_25/Light_merch_front.png" alt="Light T-Shirt">
+            </div>
+            <div class="slider__item" style="--position: 4" data-src="anvesha_merch_25/v04-com-Anvesha25.png">
+                <img src="anvesha_merch_25/v04-com-Anvesha25.png" alt="Anvesha Sticker">
+            </div>
+            <div class="slider__item" style="--position: 5" data-src="anvesha_merch_25/v04-com-LAV.png">
+                <img src="anvesha_merch_25/v04-com-LAV.png" alt="Lavender Sticker">
+            </div>
+            <div class="slider__item" style="--position: 6" data-src="anvesha_merch_25/AnveshaCC-Back-c2-01.png">
+                <img src="anvesha_merch_25/AnveshaCC-Back-c2-01.png" alt="Bookstrap">
+            </div>
+            <div class="slider__item" style="--position: 7" data-src="anvesha_merch_25/Merch Brochure-01.png">
+                <img src="anvesha_merch_25/Merch Brochure-01.png" alt="Dark Collection">
+            </div>
+            <div class="slider__item" style="--position: 8" data-src="anvesha_merch_25/Merch Brochure-02.png">
+                <img src="anvesha_merch_25/Merch Brochure-02.png" alt="Lavender Pack">
+            </div>
+            <div class="slider__item" style="--position: 9" data-src="anvesha_merch_25/Merch Brochure-03.png">
+                <img src="anvesha_merch_25/Merch Brochure-03.png" alt="Accessories">
+            </div>
+        </div>
+        
+            <div class="hero__logo">
+                <img src="anvesha_merch_25/Black_anvesha_logo.png" alt="Anvesha 2025">
+            </div>
+            <div class="hero__cta-group">
+                <a href="#products" class="hero__cta hero__cta--secondary">View Collection</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScLwRuMnb8rIlcnxWnjF-xjk8NRUsMEcbwiX5hkg15Xx9vBCg/viewform" target="_blank" rel="noopener noreferrer" class="hero__cta hero__cta--primary">Order Now</a>
+            </div>
+        </section>    <!-- Lightbox for Image Zoom -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox__close" id="lightboxClose">&times;</div>
+        <div class="lightbox__nav lightbox__prev" id="lightboxPrev">&#8249;</div>
+        <div class="lightbox__content">
+            <img class="lightbox__img" id="lightboxImg" src="" alt="">
+        </div>
+        <div class="lightbox__nav lightbox__next" id="lightboxNext">&#8250;</div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="product__section" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Products</h2>
+                <p>Official Anvesha 2025 merchandise</p>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="productSearch" placeholder="Search products..." class="search-input">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </div>
+            
+            <ul class="filter__controls">
+                <li class="active" data-filter="*">All</li>
+                <li data-filter="tshirt">T-Shirts</li>
+                <li data-filter="sticker">Stickers</li>
+                <li data-filter="Badge">Badge</li>
+                <li data-filter="poster">Poster</li>
+                <li data-filter="Bookmark">Bookmark</li>
+                <li data-filter="combo">Combo</li>
+            </ul>
+            
+            <div class="product__filter">
+                <!-- Product 1 -->
+                <div class="product__item tshirt">
+                    <div class="product__item__pic" style="background-image: url('anvesha_merch_25/Anvesha-Dark-FR.png');"></div>
+                    <div class="product__item__text">
+                        <h5><a href="#">Infinite Possibilities</a></h5>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product__item tshirt">
+                    <div class="product__item__pic" style="background-image: url('anvesha_merch_25/Anvesha-Lav-FR.png');"></div>
+                    <div class="product__item__text">
+                        <h5><a href="#">Curious Minds</a></h5>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+               
+
+                <!-- Product 4 -->
+                <div class="product__item Badge">
+                    <div class="product__item__pic" style="background-image: url('anvesha_merch_25/Merch Brochure-05.png');"></div>
+                    <div class="product__item__text">
+                        <h5><a href="#">Anvesha Badge</a></h5>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product__item sticker">
+                    <div class="product__item__pic" style="background-image: url('anvesha_merch_25/Merch Brochure-06.png');"></div>
+                    <div class="product__item__text">
+                        <h5><a href="#">Stickers</a></h5>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product__item poster">
+                    <div class="product__item__pic" style="background-image: url('anvesha_merch_25/Merch Brochure-07.png');"></div>
+                    <div class="product__item__text">
+                        <h5><a href="#">Poster</a></h5>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product__item Bookmark">
+                    <div class="product__item__pic" style="background-image: url('anvesha_merch_25/Merch\ Brochure-08.png');"></div>
+                    <div class="product__item__text">
+                        <h5><a href="#">Bookmark</a></h5>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product__item tshirt">
+                    <div class="product__item__pic" style="background-image: url('anvesha_merch_25/Merch Brochure-09.png');"></div>
+                    <div class="product__item__text">
+                        <h5><a href="#">T-Shirt Combo</a></h5>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product__item combo">
+                    <div class="product__item__pic" style="background-image: url('anvesha_merch_25/Merch Brochure-10.png');"></div>
+                    <div class="product__item__text">
+                        <h5><a href="#">All Merch Combo</a></h5>
+                    </div>
+                </div>
+
+                  <!-- Product 9 -->
+                <div class="product__item combo">
+                    <div class="product__item__pic" style="background-image: url('anvesha_merch_25/Merch Brochure-11.png');"></div>
+                    <div class="product__item__text">
+                        <h5><a href="#">Essentials Combo</a></h5>
+                    </div>
+                </div>
+
+                  <!-- Product 9 -->
+                <div class="product__item combo">
+                    <div class="product__item__pic" style="background-image: url('anvesha_merch_25/Merch Brochure-12.png');"></div>
+                    <div class="product__item__text">
+                        <h5><a href="#">Accessories Combo</a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth Parallax Scrolling
+        let ticking = false;
+        let lastScrollY = 0;
+        
+        function updateParallax() {
+            const scrollY = window.pageYOffset;
+            const background = document.querySelector('body::before');
+            
+            // Update parallax transform
+            document.body.style.setProperty('--scroll-y', `${scrollY * 0.5}px`);
+            
+            ticking = false;
+        }
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', requestTick, { passive: true });
+        
+        // Parallax background movement
+        document.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('body::before');
+            if (parallax) {
+                document.body.style.backgroundPositionY = scrolled * 0.5 + 'px';
+            }
+        });
+        
+        // Protect hero images from being modified by other scripts
+        (function() {
+            const heroImages = document.querySelectorAll('.slider__item img');
+            const originalSources = new Map();
+            
+            // Store original sources immediately
+            heroImages.forEach(img => {
+                const src = img.getAttribute('src');
+                originalSources.set(img, src);
+                img.dataset.heroImage = 'true'; // Mark as hero image
+                img.classList.add('loaded');
+                img.style.opacity = '1';
+                img.style.visibility = 'visible';
+            });
+            
+            // Function to restore and maintain hero images
+            function ensureHeroImagesLoaded() {
+                heroImages.forEach(img => {
+                    const originalSrc = originalSources.get(img);
+                    const currentSrc = img.getAttribute('src');
+                    
+                    // Restore if src was modified
+                    if (currentSrc !== originalSrc) {
+                        img.setAttribute('src', originalSrc);
+                        img.src = originalSrc;
+                    }
+                    
+                    // Force visible
+                    img.classList.add('loaded');
+                    img.style.opacity = '1';
+                    img.style.visibility = 'visible';
+                    img.style.display = 'block';
+                    
+                    // Ensure it loads
+                    if (!img.complete) {
+                        img.addEventListener('load', function() {
+                            this.classList.add('loaded');
+                            this.style.opacity = '1';
+                            this.style.visibility = 'visible';
+                        }, { once: true });
+                    }
+                });
+            }
+            
+            // Run immediately
+            ensureHeroImagesLoaded();
+            
+            // Intercept setAttribute on hero images
+            heroImages.forEach(img => {
+                const originalSetAttribute = img.setAttribute.bind(img);
+                img.setAttribute = function(name, value) {
+                    if (name === 'src' && img.dataset.heroImage === 'true') {
+                        const originalSrc = originalSources.get(img);
+                        // Only allow setting to the original source
+                        if (value === originalSrc || !originalSrc) {
+                            originalSetAttribute(name, value);
+                        }
+                        // Ignore attempts to change to other values
+                    } else {
+                        originalSetAttribute(name, value);
+                    }
+                };
+            });
+            
+            // Re-check multiple times
+            document.addEventListener('DOMContentLoaded', function() {
+                ensureHeroImagesLoaded();
+                setTimeout(ensureHeroImagesLoaded, 50);
+                setTimeout(ensureHeroImagesLoaded, 100);
+                setTimeout(ensureHeroImagesLoaded, 200);
+                setTimeout(ensureHeroImagesLoaded, 500);
+                setTimeout(ensureHeroImagesLoaded, 1000);
+                setTimeout(ensureHeroImagesLoaded, 2000);
+            });
+            
+            // Watch for mutations
+            if (window.MutationObserver) {
+                const observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
+                            ensureHeroImagesLoaded();
+                        }
+                    });
+                });
+                
+                heroImages.forEach(img => {
+                    observer.observe(img, {
+                        attributes: true,
+                        attributeFilter: ['src', 'style']
+                    });
+                });
+            }
+            
+            // Make function global for other checks
+            window.ensureHeroImagesLoaded = ensureHeroImagesLoaded;
+            
+            // Lazy Loading for product images only
+            document.addEventListener('DOMContentLoaded', function() {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            if (img.dataset.lazyload) {
+                                img.src = img.dataset.lazyload;
+                            }
+                            img.classList.add('loaded');
+                            observer.unobserve(img);
+                        }
+                    });
+                }, {
+                    rootMargin: '100px 0px',
+                    threshold: 0.01
+                });
+                
+                // Only observe product images, not hero images
+                const productImages = document.querySelectorAll('.product__item__pic');
+                productImages.forEach(img => {
+                    imageObserver.observe(img);
+                });
+            });
+        })();
+        
+        // Hero Slider Control
+        const heroSlider = document.getElementById('heroSlider');
+        const sliderItems = document.querySelectorAll('.slider__item');
+        let isPaused = false;
+        
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.querySelector('.lightbox__close');
+        const lightboxPrev = document.querySelector('.lightbox__prev');
+        const lightboxNext = document.querySelector('.lightbox__next');
+        let currentImageIndex = 0;
+        const images = Array.from(sliderItems).map(item => {
+            const img = item.querySelector('img');
+            return img ? img.src : '';
+        }).filter(src => src);
+        
+        // Open lightbox and pause carousel when clicking on slider items
+        sliderItems.forEach((item, index) => {
+            item.addEventListener('click', function(e) {
+                e.stopPropagation();
+                currentImageIndex = index;
+                const imgElement = item.querySelector('img');
+                if (imgElement) {
+                    lightboxImg.src = imgElement.src;
+                    lightboxImg.style.opacity = '1';
+                    lightboxImg.classList.add('loaded');
+                }
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Pause carousel
+                heroSlider.classList.add('paused');
+                isPaused = true;
+            });
+        });
+        
+        // Close lightbox and resume carousel
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            
+            // Resume carousel
+            heroSlider.classList.remove('paused');
+            isPaused = false;
+        }
+        
+        if (lightboxClose) {
+            lightboxClose.addEventListener('click', closeLightbox);
+        }
+        
+        if (lightbox) {
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox || e.target === lightboxImg) {
+                    closeLightbox();
+                }
+            });
+        }
+        
+        // Navigate images in lightbox
+        if (lightboxPrev) {
+            lightboxPrev.addEventListener('click', function(e) {
+                e.stopPropagation();
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                lightboxImg.src = images[currentImageIndex];
+                lightboxImg.style.opacity = '1';
+            });
+        }
+        
+        if (lightboxNext) {
+            lightboxNext.addEventListener('click', function(e) {
+                e.stopPropagation();
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                lightboxImg.src = images[currentImageIndex];
+                lightboxImg.style.opacity = '1';
+            });
+        }
+        
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', function(e) {
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') lightboxPrev.click();
+                if (e.key === 'ArrowRight') lightboxNext.click();
+            }
+        });
+        
+        // Product images zoom
+        document.querySelectorAll('.product__item__pic').forEach((pic, index) => {
+            pic.style.cursor = 'zoom-in';
+            pic.addEventListener('click', function() {
+                const bgImage = this.style.backgroundImage;
+                const imageSrc = bgImage.slice(5, -2); // Extract URL from url("...")
+                lightboxImg.src = imageSrc;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter__controls li');
+            const products = document.querySelectorAll('.product__item');
+            const searchInput = document.getElementById('productSearch');
+            let currentFilter = '*';
+            
+            // Function to filter products based on category and search
+            function filterProducts() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                
+                products.forEach(product => {
+                    const productName = product.querySelector('h5 a').textContent.toLowerCase();
+                    const matchesSearch = searchTerm === '' || productName.includes(searchTerm);
+                    const matchesFilter = currentFilter === '*' || product.classList.contains(currentFilter);
+                    
+                    if (matchesSearch && matchesFilter) {
+                        product.style.display = 'block';
+                        setTimeout(() => {
+                            product.style.opacity = '1';
+                            product.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        product.style.opacity = '0';
+                        product.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            product.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            }
+            
+            // Search input handler
+            searchInput.addEventListener('input', filterProducts);
+            
+            // Category filter handler
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    currentFilter = filter;
+                    
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Apply filters
+                    filterProducts();
+                });
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <!-- Protect hero images BEFORE other scripts load -->
+    <script>
+        // Override querySelectorAll to protect hero images
+        (function() {
+            const originalQuerySelectorAll = document.querySelectorAll.bind(document);
+            document.querySelectorAll = function(selector) {
+                const elements = originalQuerySelectorAll(selector);
+                
+                // If selecting all images, exclude hero images from modifications
+                if (selector === 'img') {
+                    return Array.from(elements).filter(img => !img.closest('.slider__item'));
+                }
+                
+                return elements;
+            };
+        })();
+    </script>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Final check after all scripts loaded
+        window.addEventListener('load', function() {
+            if (typeof ensureHeroImagesLoaded === 'function') {
+                ensureHeroImagesLoaded();
+            }
+            
+            // Double check every second for first 5 seconds
+            let checks = 0;
+            const interval = setInterval(function() {
+                if (typeof ensureHeroImagesLoaded === 'function') {
+                    ensureHeroImagesLoaded();
+                }
+                checks++;
+                if (checks >= 5) {
+                    clearInterval(interval);
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

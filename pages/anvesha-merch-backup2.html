@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anvesha 2025 Official Merchandise - T-shirts, Stickers, Bookstraps and exclusive bundles">
+    <title>Anvesha 2025 Merch Store | Official Merchandise</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/merch.css">
+    <link rel="stylesheet" href="navbar.css">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Banner -->
+    <section class="merch-hero">
+        <div class="hero-overlay">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Anvesha 2025 Official Merch</h1>
+                    <p class="hero-subtitle">Limited Edition | Exclusive Designs | Premium Quality</p>
+                    <div class="hero-badges">
+                        <span class="badge">
+                            <i class="fas fa-certificate"></i> 100% Authentic
+                        </span>
+                        <span class="badge">
+                            <i class="fas fa-shipping-fast"></i> Fast Delivery
+                        </span>
+                        <span class="badge">
+                            <i class="fas fa-fire"></i> Limited Stock
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="category-filter">
+        <div class="container">
+            <button class="filter-btn active" data-category="all">
+                <i class="fas fa-th"></i> All Items
+            </button>
+            <button class="filter-btn" data-category="tshirt">
+                <i class="fas fa-tshirt"></i> T-Shirts
+            </button>
+            <button class="filter-btn" data-category="sticker">
+                <i class="fas fa-star"></i> Stickers
+            </button>
+            <button class="filter-btn" data-category="bookstrap">
+                <i class="fas fa-bookmark"></i> Bookstraps
+            </button>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <main class="merch-main">
+        <div class="container">
+            <div class="products-header">
+                <h2>Featured Collection</h2>
+                <p class="products-count">12 exclusive items available</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1: Dark T-Shirt -->
+                <div class="product-card" data-category="tshirt">
+                    <span class="product-badge">Limited Edition</span>
+                    <div class="product-images">
+                        <img src="anvesha_merch_25/Anvesha-Dark-FR.png" alt="Anvesha Dark T-Shirt Front" class="main-img">
+                        <img src="anvesha_merch_25/Anvesha-Dark-BK.png" alt="Anvesha Dark T-Shirt Back" class="hover-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Anvesha 2025 Dark Edition T-Shirt</h3>
+                        <p class="product-desc">Premium cotton tee with exclusive Anvesha 2025 dark design</p>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.9
+                            </div>
+                            <span class="stock">In Stock</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-view" onclick="openModal('dark-tshirt')">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: Lavender T-Shirt -->
+                <div class="product-card" data-category="tshirt">
+                    <span class="product-badge hot">Hot</span>
+                    <div class="product-images">
+                        <img src="anvesha_merch_25/Anvesha-Lav-FR.png" alt="Anvesha Lavender T-Shirt Front" class="main-img">
+                        <img src="anvesha_merch_25/Anvesha-Lav-BK.png" alt="Anvesha Lavender T-Shirt Back" class="hover-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Anvesha 2025 Lavender Edition T-Shirt</h3>
+                        <p class="product-desc">Stylish lavender tee with unique Anvesha branding</p>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 5.0
+                            </div>
+                            <span class="stock">In Stock</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-view" onclick="openModal('lav-tshirt')">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3: Light T-Shirt -->
+                <div class="product-card" data-category="tshirt">
+                    <span class="product-badge new">New</span>
+                    <div class="product-images">
+                        <img src="anvesha_merch_25/Light_merch_front.png" alt="Anvesha Light T-Shirt Front" class="main-img">
+                        <img src="anvesha_merch_25/light_tshirt_back.png" alt="Anvesha Light T-Shirt Back" class="hover-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Anvesha 2025 Light Edition T-Shirt</h3>
+                        <p class="product-desc">Fresh light-colored tee perfect for all occasions</p>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.8
+                            </div>
+                            <span class="stock">In Stock</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-view" onclick="openModal('light-tshirt')">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4: Anvesha 2025 Sticker -->
+                <div class="product-card" data-category="sticker">
+                    <span class="product-badge">Bestseller</span>
+                    <div class="product-images">
+                        <img src="anvesha_merch_25/v04-com-Anvesha25.png" alt="Anvesha 2025 Sticker" class="single">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Anvesha 2025 Premium Sticker</h3>
+                        <p class="product-desc">High-quality vinyl sticker with vibrant Anvesha design</p>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.7
+                            </div>
+                            <span class="stock">In Stock</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-view" onclick="openModal('sticker-1')">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5: Lavender Sticker -->
+                <div class="product-card" data-category="sticker">
+                    <span class="product-badge new">New</span>
+                    <div class="product-images">
+                        <img src="anvesha_merch_25/v04-com-LAV.png" alt="Anvesha Lavender Sticker" class="single">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Anvesha Lavender Sticker</h3>
+                        <p class="product-desc">Elegant lavender-themed sticker for your collection</p>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.8
+                            </div>
+                            <span class="stock">In Stock</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-view" onclick="openModal('sticker-2')">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6: Bookstrap -->
+                <div class="product-card" data-category="bookstrap">
+                    <span class="product-badge special">Special</span>
+                    <div class="product-images">
+                        <img src="anvesha_merch_25/AnveshaCC-Back-c2-01.png" alt="Anvesha Bookstrap" class="single">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Anvesha 2025 Bookstrap</h3>
+                        <p class="product-desc">Durable and stylish bookstrap featuring Anvesha branding</p>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.9
+                            </div>
+                            <span class="stock special">Limited</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-view" onclick="openModal('bookstrap')">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7-12: Bundle Items -->
+                <div class="product-card" data-category="tshirt">
+                    <span class="product-badge">Bundle</span>
+                    <div class="product-images">
+                        <img src="anvesha_merch_25/Merch Brochure-01.png" alt="Merch Bundle 1" class="single">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Complete Dark Collection</h3>
+                        <p class="product-desc">T-shirt + Sticker + Bookstrap combo deal</p>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 5.0
+                            </div>
+                            <span class="stock special">Save 20%</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-view" onclick="openModal('bundle-1')">
+                                <i class="fas fa-eye"></i> View Bundle
+                            </button>
+                            <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="tshirt">
+                    <span class="product-badge">Bundle</span>
+                    <div class="product-images">
+                        <img src="anvesha_merch_25/Merch Brochure-02.png" alt="Merch Bundle 2" class="single">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Lavender Lovers Pack</h3>
+                        <p class="product-desc">Get the full lavender collection at special price</p>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.9
+                            </div>
+                            <span class="stock special">Save 20%</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-view" onclick="openModal('bundle-2')">
+                                <i class="fas fa-eye"></i> View Bundle
+                            </button>
+                            <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="sticker">
+                    <span class="product-badge">Bundle</span>
+                    <div class="product-images">
+                        <img src="anvesha_merch_25/Merch Brochure-03.png" alt="Merch Bundle 3" class="single">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Sticker Collector's Set</h3>
+                        <p class="product-desc">All exclusive stickers in one amazing pack</p>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.8
+                            </div>
+                            <span class="stock special">Save 15%</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-view" onclick="openModal('bundle-3')">
+                                <i class="fas fa-eye"></i> View Bundle
+                            </button>
+                            <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="tshirt">
+                    <span class="product-badge hot">Hot Deal</span>
+                    <div class="product-images">
+                        <img src="anvesha_merch_25/Merch Brochure-05.png" alt="Merch Bundle 4" class="single">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Ultimate Anvesha Pack</h3>
+                        <p class="product-desc">Everything you need - all items included!</p>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 5.0
+                            </div>
+                            <span class="stock special">Save 30%</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-view" onclick="openModal('bundle-4')">
+                                <i class="fas fa-eye"></i> View Bundle
+                            </button>
+                            <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="tshirt">
+                    <span class="product-badge">Bundle</span>
+                    <div class="product-images">
+                        <img src="anvesha_merch_25/Merch Brochure-06.png" alt="Merch Bundle 5" class="single">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Twin T-Shirt Combo</h3>
+                        <p class="product-desc">Any two t-shirts at discounted price</p>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.9
+                            </div>
+                            <span class="stock special">Save 25%</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-view" onclick="openModal('bundle-5')">
+                                <i class="fas fa-eye"></i> View Bundle
+                            </button>
+                            <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="bookstrap">
+                    <span class="product-badge special">Exclusive</span>
+                    <div class="product-images">
+                        <img src="anvesha_merch_25/Merch Brochure-10.png" alt="Merch Bundle 6" class="single">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Accessories Bundle</h3>
+                        <p class="product-desc">Complete accessories collection with special perks</p>
+                        <div class="product-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.7
+                            </div>
+                            <span class="stock special">Limited</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-view" onclick="openModal('bundle-6')">
+                                <i class="fas fa-eye"></i> View Bundle
+                            </button>
+                            <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="merch-cta">
+        <div class="container">
+            <h2>Got Questions About Our Merch?</h2>
+            <p>Contact us directly for bulk orders, customization, or any queries</p>
+            <div class="cta-buttons">
+                <a href="mailto:stc@iisertvm.ac.in" class="btn-primary">
+                    <i class="fas fa-envelope"></i> Email Us
+                </a>
+                <a href="tel:+919876543210" class="btn-secondary">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript -->
+    <script>
+        // Load navbar
+        $(document).ready(function() {
+            $('#navbar-placeholder').load('navbar.html');
+            $('#footer-placeholder').load('../footer.html');
+        });
+
+        // Category filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const category = btn.getAttribute('data-category');
+
+                // Filter products
+                productCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                            setTimeout(() => card.classList.add('show'), 10);
+                        } else {
+                            card.classList.remove('show');
+                            setTimeout(() => card.style.display = 'none', 300);
+                        }
+                    }, index * 50);
+                });
+            });
+        });
+
+        // Show all products on load
+        setTimeout(() => {
+            productCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('show');
+                }, index * 100);
+            });
+        }, 100);
+
+        // Wishlist toggle
+        function toggleWishlist(btn) {
+            const icon = btn.querySelector('i');
+            if (icon.classList.contains('far')) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+                btn.style.color = '#e74c3c';
+            } else {
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+                btn.style.color = '';
+            }
+        }
+
+        // Modal function (placeholder)
+        function openModal(productId) {
+            alert('Product details modal for: ' + productId + '\n\nThis would open a detailed view with:\n- Full product description\n- Size options\n- Add to cart functionality\n- More images');
+        }
+    </script>
+</body>
+</html>
