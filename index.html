@@ -994,6 +994,95 @@
             opacity: 1;
         }
 
+        /* Anvesha Merch Banner Styles */
+        #anvesha-merch-banner {
+            padding: 1.5rem 0;
+            background: transparent;
+        }
+
+        .merch-banner-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 200px;
+        }
+
+        .merch-banner-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .merch-poster-link {
+            display: block;
+            position: relative;
+            text-decoration: none;
+            height: 100%;
+        }
+
+        .merch-poster-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .merch-poster-link:hover .merch-poster-img {
+            transform: scale(1.05);
+        }
+
+        .merch-banner-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(102, 126, 234, 0.95), rgba(118, 75, 162, 0.85));
+            padding: 1rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .merch-poster-link:hover .merch-banner-overlay {
+            transform: translateY(0);
+        }
+
+        .merch-banner-overlay h3 {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .merch-banner-overlay p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .merch-cta-badge {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 6px 16px;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .merch-poster-link:hover .merch-cta-badge {
+            background: #667eea;
+            color: white;
+            transform: translateX(3px);
+        }
+
         /* Responsive Design for Anvesha Banner */
         @media (max-width: 768px) {
             .anvesha-content {
@@ -1012,6 +1101,33 @@
 
             .anvesha-image img {
                 height: 250px;
+            }
+
+            #anvesha-merch-banner {
+                padding: 1rem 0;
+            }
+
+            .merch-banner-wrapper {
+                margin: 0 1rem;
+                height: 150px;
+            }
+
+            .merch-banner-overlay {
+                padding: 0.8rem 1rem;
+            }
+
+            .merch-banner-overlay h3 {
+                font-size: 0.95rem;
+            }
+
+            .merch-banner-overlay p {
+                font-size: 0.75rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .merch-cta-badge {
+                padding: 5px 12px;
+                font-size: 0.7rem;
             }
         }
 
@@ -1360,6 +1476,22 @@
                 </div>
                 <div class="anvesha-image">
                     <img src="images/gallery/Events/Anvesha/img1.jpg" alt="Anvesha 2025 - Annual Science Festival" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Anvesha Merch Poster Banner -->
+        <section id="anvesha-merch-banner" class="fade-in-section">
+            <div class="container">
+                <div class="merch-banner-wrapper">
+                    <a href="pages/anvesha-merch.html" class="merch-poster-link">
+                        <img src="pages/anvesha_merch_25/Merch Brochure-01.png" alt="Anvesha 2025 Merchandise - Limited Edition Collection" class="merch-poster-img">
+                        <div class="merch-banner-overlay">
+                            <h3>Anvesha 2025 Official Merchandise</h3>
+                            <p>Limited Edition Collection - Click to Explore</p>
+                            <span class="merch-cta-badge">Shop Now →</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>

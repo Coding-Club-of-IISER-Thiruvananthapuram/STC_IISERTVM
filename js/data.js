@@ -23,7 +23,7 @@ To update the content on your website, you onconst upcomingEvents = [
         description: "Anvesha, the annual science festival of IISER Thiruvananthapuram, is a vibrant three-day celebration of science and innovation featuring diverse outreach activities, engaging exhibitions, hands-on workshops, and interactive sessions."
     },
     {
-        date: "SEP",
+        date: "Nov",
         title: "Know Your Faculty",
         description: "Organised by the CCIT, this short video series answers common questions in programming and helps you learn directly from our faculty experts."
     }
@@ -125,7 +125,7 @@ const upcomingEvents = [
         description: "Anvesha ’25 is almost here! IISER Thiruvananthapuram’s annual science fest kicks off on October 31st."
     },
     {
-        date: "SEP",
+        date: "Nov",
         title: "Know Your Faculty",
         description: "Organised by the CCIT, this short video series answers common questions in programming and helps you learn directly from our faculty experts."
     }
